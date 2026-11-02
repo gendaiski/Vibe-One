@@ -32,7 +32,7 @@ The standalone Workbench combines playbooks, source attribution, UX glossary, bo
 
 | Capability | Benchmark | Integrated platform |
 | --- | --- | --- |
-| Code editor | Monaco | Self-hosted Monaco, fallback text editor, save conflict checks |
+| Code editor | Monaco | Self-hosted Monaco, retained draft tabs, save conflicts, safe rename/move and source ZIP export |
 | Chat-driven changes | Streams structured model text, client applies files | Official Codex CLI edits actual project files; durable events and cancellation |
 | Identity | OAuth and optional shared demo mode | Separate local password accounts; no automatic shared login |
 | Offering boundaries | Generic playground | Vibe One / Vibe Law access and project metadata |
@@ -55,7 +55,7 @@ The target is to exceed the benchmark through a complete, verifiable building wo
 1. Add project-scoped OS execution isolation before supporting untrusted public accounts.
 2. Connect real cloud identity and payment entitlements; migrate local trial access intentionally.
 3. Add supervised framework development servers with authenticated proxying, lifecycle controls and resource limits.
-4. Add file rename/move, richer multi-tab editing, project export and tested framework starters.
+4. Expand the starter library with tested framework projects. Multi-file draft tabs, rename/move and project export are implemented; see PRACTICE-FILES.md.
 5. Add inline completion and collaboration only with a clearly supported provider and ownership model.
 
 Original frontends and imported reference assets are preserved. Practice is an independent implementation, not a copied deployment of the benchmark.

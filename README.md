@@ -22,7 +22,7 @@ The first account adopts the existing local Workbench projects. Subsequent accou
 | `/` | Original Vibe One / Vibe Law website, product pages and design previews |
 | `/account/` | Authenticated Workbench, briefs, playbooks, bookmarks, checklists, projects and builds |
 | `/account/#account` | Offering access, default offering and sign-out |
-| `/practice/` | Monaco editor, files, Codex tasks, logs, checks, diffs and static previews |
+| `/practice/` | Monaco tabs, retained drafts, rename/move, source ZIP export, Codex tasks, checks, diffs and previews |
 | `/studio/index.html#/dashboard` | Original project studio: categories, briefs, uploads and design choices |
 | `/design-studio.html` | Original complete design studio and export tools |
 
@@ -54,3 +54,5 @@ npm test
 ```
 
 Tests use isolated ignored directories, not your actual account database. Keep `.runtime/`, credentials, uploads, generated user projects, and temporary test output out of commits. The user-designated source repository is `gendaiski/Vibe-One`.
+
+See [Practice file workflow](docs/PRACTICE-FILES.md) for draft handling, safe rename and export limits.
