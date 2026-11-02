@@ -56,3 +56,7 @@ npm test
 Tests use isolated ignored directories, not your actual account database. Keep `.runtime/`, credentials, uploads, generated user projects, and temporary test output out of commits. The user-designated source repository is `gendaiski/Vibe-One`.
 
 See [Practice file workflow](docs/PRACTICE-FILES.md) for draft handling, safe rename and export limits.
+
+## Local admin entry
+
+On this computer, use Admin access with the user-requested passkey `12345`; no email registration is required. It opens the existing owner workspace and both local trial offerings. The admin endpoint requires a loopback connection, matching local Origin and same-origin browser request. Hosted pages link to local admin entry; they cannot invoke the passkey endpoint. Regular email accounts remain optional.
