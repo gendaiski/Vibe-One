@@ -73,3 +73,9 @@ The public Workbench main entrance has a centered Vibe wordmark and eight quick-
 
 ## Brand entrance refresh
 The entrance now gives Vibe One and Vibe Law primary logo-led choices, with eight compact shortcuts and separate offering hubs. Edition is preserved in workbench/checkout links; the last visited space is remembered when local storage is available. Original apps remain available. Editable SVG logos are stored in dist/brand.
+
+
+## Original-interface flow and entrance variations
+Vibe One and Vibe Law entrance choices now open the original offering websites. The public copy uses website.html, preserves the original templates and sample design runtimes, and deduplicates unchanged embedded font/image/runtime payloads. Brief submission explicitly hands the idea to the matching browser Workbench draft; separate offering keys preserve existing One drafts. Workbench, pricing, checkout, receipt, and return links preserve edition. Paid checkout remains a simulation. Canonical platform links preserve edition through account access and Practice.
+
+The entrance has three selectable designs (Atelier, Command, Editorial), compact icon shortcuts, and a separated balancing-scales V1 Law mark. Motion supports pause, deterministic t=N preview and reduced-motion preferences. Desktop/mobile end-to-end checks cover both original websites, brief handoff, pricing, demo receipt and return, all three designs and the original sample runtime.

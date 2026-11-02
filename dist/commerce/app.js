@@ -1,7 +1,7 @@
 'use strict';
 (()=>{
 const app=document.querySelector('#app'),q=new URLSearchParams(location.search),edition=q.get('edition')==='law'?'law':'one',plan=q.get('plan')==='team'?'team':'creator',name=edition==='law'?'Vibe Law':'Vibe One',planName=plan==='team'?'Team':'Creator',unit=edition==='law'?(plan==='team'?59:29):(plan==='team'?49:19),key='vibe-demo-order-v1';
-document.querySelector('#brand-edition').textContent=edition==='law'?' Law':' One';
+document.querySelector('header nav a').href='/account/?edition='+edition;document.querySelector('.brand').href='/index.html?edition='+edition;document.querySelector('#brand-edition').textContent=edition==='law'?' Law':' One';
 const url=(page,p=plan)=>'/'+page+'/?edition='+edition+'&plan='+p;
 const usd=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
 let seats=plan==='team'?Math.max(3,Math.min(50,Number.isInteger(Number(q.get('seats')))?Number(q.get('seats')):3)):1;
@@ -10,7 +10,7 @@ function validReceipt(r){return r&&r.demo===true&&/^(one|law)$/.test(r.edition)&
 if(!validReceipt(receipt))receipt=null;
 function renderReceipt(r){
 app.innerHTML='<section class="receipt"><div class="receipt-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></div><p class="eyebrow">DEMO ORDER CONFIRMED</p><h1>Your test order is complete.</h1><p class="intro">You have reached the end of the purchase flow. No money was charged, and no paid subscription was activated.</p><div class="card"><h2>Demo receipt</h2><div id="receipt-lines"></div></div><div class="actions"><a class="button primary" href="/">Return to Workbench</a><a class="button" href="'+url('plans')+'">Try another plan</a><button id="new-order">Start a new demo order</button></div><p class="muted">This receipt is stored in this browser tab for the demo only.</p></section>';
-const lines=[['Order',r.id],['Offering',r.edition==='law'?'Vibe Law':'Vibe One'],['Plan',r.plan==='team'?'Team':'Creator'],['Seats',String(r.seats)],['Billing','Monthly · simulation'],['Demo total',usd(r.total)],['Amount charged',usd(0)],['Created',new Date(r.created).toLocaleString()]];
+document.querySelector('.receipt .actions>a').href='/account/?edition='+r.edition;const lines=[['Order',r.id],['Offering',r.edition==='law'?'Vibe Law':'Vibe One'],['Plan',r.plan==='team'?'Team':'Creator'],['Seats',String(r.seats)],['Billing','Monthly · simulation'],['Demo total',usd(r.total)],['Amount charged',usd(0)],['Created',new Date(r.created).toLocaleString()]];
 for(const [label,value] of lines){const row=document.createElement('div');row.className='line';const l=document.createElement('span'),v=document.createElement('strong');l.textContent=label;v.textContent=value;row.append(l,v);document.querySelector('#receipt-lines').append(row);}
 document.querySelector('#new-order').onclick=()=>{try{sessionStorage.removeItem(key);}catch{}receipt=null;history.replaceState(null,'',url('checkout'));renderCheckout();};
 }
