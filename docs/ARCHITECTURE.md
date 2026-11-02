@@ -15,3 +15,5 @@ The companion binds only to 127.0.0.1. Host and origin checks restrict requests 
 Local accounts isolate application data, not the operating system. All builds use the host's Codex subscription and workstation permissions. Generated project scripts can execute when the owner explicitly runs checks. Do not expose this service on a public interface. A production multi-tenant platform needs isolated workers, per-user provider connections, quotas, cloud identity, entitlement webhooks, audit and backup policies.
 
 The original design studio retains its existing browser-local exports/settings. Those are not cloud-synchronized account records. Keep original source copies available when reviewing historical features or design variants.
+
+The root all-designs URLs redirect to their identical canonical brand index pages, preserving query and fragment state. This removes duplicate HTML bundles so the hosted static output fits the hosting size limit; original imported copies remain unchanged outside this repository.
