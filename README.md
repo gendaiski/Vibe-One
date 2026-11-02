@@ -60,3 +60,12 @@ See [Practice file workflow](docs/PRACTICE-FILES.md) for draft handling, safe re
 ## Local admin entry
 
 On this computer, use Admin access with the user-requested passkey `12345`; no email registration is required. It opens the existing owner workspace and both local trial offerings. The admin endpoint requires a loopback connection, matching local Origin and same-origin browser request. Hosted pages link to local admin entry; they cannot invoke the passkey endpoint. Regular email accounts remain optional.
+
+
+## Guest demo checkout — 2026-11-02
+
+The public Workbench now links to /plans/ and /checkout/. Guests choose Vibe One or Vibe Law and a monthly Creator or Team draft plan. Team checkout supports 3–50 seats. Admin Pay uses demo passkey 12345 and creates a browser-tab receipt only; there is no payment gateway, charge, paid entitlement, or owner access. Receipts survive reload within the tab when sessionStorage is available. Prices are recomputed from the validated offering/plan, never query totals. The same commerce sources are mirrored into the original public Workbench Site. The integrated platform keeps its existing private audience.
+
+Validation: 45 JS syntax checks and 10 backend tests passed. Edge acceptance covered public entry, edition/plan selection, team totals/bounds, wrong/right passkey, receipt reload, query tampering, and mobile overflow at 390/768/1440px.
+
+The public Workbench main entrance has a centered Vibe wordmark and eight quick-access links. Its original app is retained at /workbench.html. The integrated project retains its original root interface and includes the reusable entrance at /entrance/. No raster artwork was created.
