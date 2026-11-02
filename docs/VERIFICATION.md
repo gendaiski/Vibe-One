@@ -21,3 +21,7 @@ This verifies a local-first integration. It does not certify public multi-tenant
 ## Local admin entry
 
 Admin passkey entry was verified in an isolated browser: wrong key rejected, `12345` opens the owner workspace with both offerings, and hosted/cross-site/originless requests are denied. Existing owner identity and session revocation are covered by the added account test.
+
+## Editor layout correction
+
+Read-only browser checks against the selected task demo verified visible index.html content and usable editor dimensions at 390, 800, 1000, 1200 and 1440 pixels, without horizontal overflow or JavaScript errors. File selection, Preview-to-code navigation and drawer collapse on compact resizing passed. The full 10-test regression suite and 44-file syntax check passed.

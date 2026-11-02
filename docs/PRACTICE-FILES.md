@@ -9,3 +9,7 @@ Rename moves the active text file, including into a new folder. It preserves fil
 Export ZIP downloads saved project sources and binary references. When drafts exist, choose Save all & export, Export saved only, or Cancel. The archive omits Git metadata, dependencies, build output and recognized credential stores. Ordinary application source such as auth.ts and authentication folders remains included. This is a source handoff, not a backup of credentials or installed dependencies.
 
 Export refuses active jobs, more than 1,000 files, more than 50 MiB of source data, or more than 20 folder levels. Limits return an error rather than a truncated ZIP. All rename and export APIs require the signed-in project owner and the project's offering access.
+
+## Editor layout
+
+Compact windows open in Code view with full-width source. Use Files and Codex panel to open or close side panels; selecting a file closes the compact file drawer and focuses the editor. Wide windows start with code and Preview side by side. In compact Split view, the full-width code and preview panes stack inside the workspace. Opening Files from Preview reveals Code view.
