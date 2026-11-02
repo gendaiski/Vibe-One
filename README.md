@@ -69,3 +69,7 @@ The public Workbench now links to /plans/ and /checkout/. Guests choose Vibe One
 Validation: 45 JS syntax checks and 10 backend tests passed. Edge acceptance covered public entry, edition/plan selection, team totals/bounds, wrong/right passkey, receipt reload, query tampering, and mobile overflow at 390/768/1440px.
 
 The public Workbench main entrance has a centered Vibe wordmark and eight quick-access links. Its original app is retained at /workbench.html. The integrated project retains its original root interface and includes the reusable entrance at /entrance/. No raster artwork was created.
+
+
+## Brand entrance refresh
+The entrance now gives Vibe One and Vibe Law primary logo-led choices, with eight compact shortcuts and separate offering hubs. Edition is preserved in workbench/checkout links; the last visited space is remembered when local storage is available. Original apps remain available. Editable SVG logos are stored in dist/brand.
