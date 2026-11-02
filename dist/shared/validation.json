@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-27",
+  "files": [
+    {
+      "brand": "someone-lawyer",
+      "scripts": 2,
+      "records": 10,
+      "externalScripts": false,
+      "externalStyles": false,
+      "bytes": 63291
+    },
+    {
+      "brand": "ai-company-market",
+      "scripts": 2,
+      "records": 11,
+      "externalScripts": false,
+      "externalStyles": false,
+      "bytes": 65153
+    }
+  ],
+  "browser": {
+    "desktopSitemapRoutes": 50,
+    "mobileSitemapRoutes": 50,
+    "mobileDetailRecords": 21,
+    "errors": 0
+  }
+}

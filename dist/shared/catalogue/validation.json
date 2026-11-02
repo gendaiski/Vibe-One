@@ -1,0 +1,25 @@
+{
+  "testedAt": "2026-09-27T16:27:46.234Z",
+  "total": 537221,
+  "metadataCount": 10277,
+  "checksPassed": 17,
+  "checks": [
+    "All indexed records searchable with bounded 24-card pages",
+    "Claude Code Marketplaces: count, source filtering, final page and direct detail ID",
+    "Claude Skills Hub: count, source filtering, final page and direct detail ID",
+    "MCP Market: count, source filtering, final page and direct detail ID",
+    "Claude Code Marketplace: count, source filtering, final page and direct detail ID",
+    "Skill: correct type count and results",
+    "MCP Server: correct type count and results",
+    "Plugin: correct type count and results",
+    "Product: correct type count and results",
+    "Agent Package: correct type count and results",
+    "Command: correct type count and results",
+    "Workflow Template: correct type count and results",
+    "Repository: correct type count and results",
+    "Search matches returned source records",
+    "Saved-only lookup works for imported records",
+    "No-match query returns safe empty result",
+    "Invalid record ID returns null"
+  ]
+}

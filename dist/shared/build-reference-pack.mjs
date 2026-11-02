@@ -1,0 +1,13 @@
+import fs from 'node:fs/promises';
+const dir=new URL('./',import.meta.url),source=new URL('../../../Token Works/Reference Clones/',import.meta.url);
+const pack=JSON.parse(await fs.readFile(new URL('reference-pack.json',dir),'utf8'));
+const destinations=JSON.parse(await fs.readFile(new URL('gtm-ai/reference-destinations.json',source),'utf8'));
+pack.resources=pack.resources.map(r=>({...r,...destinations.mappings.find(d=>d.title===r.title)}));pack.destinationSummary=destinations.summary;
+await fs.writeFile(new URL('reference-pack.json',dir),JSON.stringify(pack,null,2));
+const rows=[['structure-webworks','Structure Webworks','https://structurewebworks.com/','Dark service website, industry pages and an article archive.'],['free-system-design','Free System Design','https://freesystemdesign.com/','A curriculum, interactive lessons and local system-design sandboxes.'],['gtm-ai','GTM AI','https://gtm.ai/','Context graph marketing, marketplace, product editors and playgrounds.'],['founder-os','FounderOS','https://www.thefounderos.com/','A founder workspace landing page and interactive knowledge graph.']];
+rows.push(['componentry','Studio Builder · Componentry','https://componentry.dev/','Law Tech Labs adaptation of the MIT component library. Full local app on port 4201.'],['agenthusiast','Agenthusiast · Illustrated Business City','https://join.agenthusiast.com/','Four-page illustrated product-funnel adaptation with The Blueprint and Inner Tribe.']);
+rows.push(['orbit','Law Tech Labs Agent Workforce','https://orbitagents.xyz/','Orbit-inspired public site and local agent workforce workspace: memory, vault, agent builder, traces and reviews.']);
+rows.push(['orbit-twin','Workforce · Orbit Twin','https://orbitagents.xyz/','Second variation: 41 public-source pages with full navigation and footer, styled for Workforce.']);
+rows.push(['autopolis','Autopolis · 3D City','https://autopolis.city/','Six source captures and a navigable modeled city with office and cafe interiors.']);
+const clones=[];for(const [id,name,url,summary] of rows){let html=await fs.readFile(new URL(id+'/index.html',source),'utf8');if(id==='autopolis'||id==='agenthusiast')html='<html><body style="background:#090c19;color:#dceafa;font:20px system-ui;padding:40px"><h1>'+name+'</h1><p>'+summary+'</p><a style="color:#6ce9ef" target="_blank" href="http://127.0.0.1:4200/'+id+'/index.html">Open full interactive website ↗</a></body></html>';const coverage=JSON.parse(await fs.readFile(new URL(id+'/coverage.json',source),'utf8'));clones.push({id,name,url,summary,html,coverage});}
+await fs.writeFile(new URL('reference-clones.json',dir),JSON.stringify(clones));console.log('Packed reference HTML projects and current resource evidence.');

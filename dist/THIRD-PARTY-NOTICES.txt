@@ -1,0 +1,32 @@
+AI Templates UI reference
+https://github.com/davila7/claude-code-templates
+Commit fcf666b91254b62deca81136bf459fc4f6ed3030
+
+Terminal presentation and timing, palette, sidebar and explorer patterns adapted from the MIT-licensed project.
+
+MIT License
+
+Copyright (c) 2025 Daniel (San) Ávila
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Geist and Geist Mono fonts: SIL Open Font License 1.1. Full licence texts are in shared/fonts/Geist-OFL.txt and Geist-Mono-OFL.txt. Fonts embedded in the HTML for offline use.
+
+
+2026-09-27 catalogue import: public directory metadata and listing URLs retain source attribution in each record. Publisher images/avatars belong to their respective publishers; inclusion does not transfer trademark or artwork ownership. Cached public image source URLs and SHA-256 hashes: shared/catalogue/icon-cache-report.json. Remaining image references: shared/catalogue/icon-sources.json. Original public responses are preserved under ../reference-sources/catalogue-import/.

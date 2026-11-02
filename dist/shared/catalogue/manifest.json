@@ -1,0 +1,84 @@
+{
+  "captured": "2026-09-27",
+  "types": [
+    "Skill",
+    "MCP Server",
+    "Plugin",
+    "Product",
+    "Agent Package",
+    "Command",
+    "Workflow Template",
+    "Repository"
+  ],
+  "sources": [
+    {
+      "id": 0,
+      "host": "claudemarketplaces.com",
+      "name": "Claude Code Marketplaces",
+      "count": 43298,
+      "metadataCount": 3003,
+      "indexOnlyCount": 40295,
+      "types": {
+        "MCP Server": 12669,
+        "Plugin": 14350,
+        "Skill": 16276,
+        "Product": 3
+      },
+      "sitemapCount": 8,
+      "sitemapErrors": [],
+      "file": "source-0.json"
+    },
+    {
+      "id": 1,
+      "host": "claudeskills.info",
+      "name": "Claude Skills Hub",
+      "count": 69630,
+      "metadataCount": 967,
+      "indexOnlyCount": 68663,
+      "types": {
+        "Command": 473,
+        "MCP Server": 18478,
+        "Plugin": 6891,
+        "Repository": 1672,
+        "Skill": 42116
+      },
+      "sitemapCount": 10,
+      "sitemapErrors": [],
+      "file": "source-1.json"
+    },
+    {
+      "id": 2,
+      "host": "mcpmarket.com",
+      "name": "MCP Market",
+      "count": 418793,
+      "metadataCount": 807,
+      "indexOnlyCount": 417986,
+      "types": {
+        "MCP Server": 50846,
+        "Skill": 367947
+      },
+      "sitemapCount": 89,
+      "sitemapErrors": [],
+      "file": "source-2.json"
+    },
+    {
+      "id": 3,
+      "host": "www.claudemarketplace.net",
+      "name": "Claude Code Marketplace",
+      "count": 5500,
+      "metadataCount": 5500,
+      "indexOnlyCount": 0,
+      "types": {
+        "Product": 4,
+        "MCP Server": 957,
+        "Skill": 4539
+      },
+      "sitemapCount": 1,
+      "sitemapErrors": [],
+      "file": "source-3.json"
+    }
+  ],
+  "coverage": "All qualifying public sitemap listing URLs, plus catalogue records exposed by retrieved public feeds. Index-only entries retain explicit coverage labels.",
+  "total": 537221,
+  "metadataCount": 10277
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "brand": "Someone.lawyer",
+    "folder": "someone-lawyer",
+    "variation": 1,
+    "name": "Marketplace Index",
+    "file": "someone-lawyer/variation-01.html",
+    "reference": "https://claudemarketplaces.com/"
+  },
+  {
+    "brand": "Someone.lawyer",
+    "folder": "someone-lawyer",
+    "variation": 2,
+    "name": "Skills Hub",
+    "file": "someone-lawyer/variation-02.html",
+    "reference": "https://claudeskills.info/mcp/"
+  },
+  {
+    "brand": "Someone.lawyer",
+    "folder": "someone-lawyer",
+    "variation": 3,
+    "name": "MCP Market",
+    "file": "someone-lawyer/variation-03.html",
+    "reference": "https://mcpmarket.com/tools/skills"
+  },
+  {
+    "brand": "Someone.lawyer",
+    "folder": "someone-lawyer",
+    "variation": 4,
+    "name": "Technical Registry",
+    "file": "someone-lawyer/variation-04.html",
+    "reference": "https://www.claudemarketplace.net/mcp/claude-skills-mcp"
+  },
+  {
+    "brand": "Someone.lawyer",
+    "folder": "someone-lawyer",
+    "variation": 5,
+    "name": "AI Templates",
+    "file": "someone-lawyer/variation-05.html",
+    "reference": "https://www.aitmpl.com/"
+  },
+  {
+    "brand": "Someone.lawyer",
+    "folder": "someone-lawyer",
+    "variation": 6,
+    "name": "Inference Utility",
+    "file": "someone-lawyer/variation-06.html",
+    "reference": "../../Token Works/index.html"
+  },
+  {
+    "brand": "Someone.lawyer",
+    "folder": "someone-lawyer",
+    "variation": 7,
+    "name": "Open Intelligence",
+    "file": "someone-lawyer/variation-07.html",
+    "reference": "../../Token Works/variation-02.html"
+  },
+  {
+    "brand": "AI Company Market",
+    "folder": "ai-company-market",
+    "variation": 1,
+    "name": "Marketplace Index",
+    "file": "ai-company-market/variation-01.html",
+    "reference": "https://claudemarketplaces.com/"
+  },
+  {
+    "brand": "AI Company Market",
+    "folder": "ai-company-market",
+    "variation": 2,
+    "name": "Skills Hub",
+    "file": "ai-company-market/variation-02.html",
+    "reference": "https://claudeskills.info/mcp/"
+  },
+  {
+    "brand": "AI Company Market",
+    "folder": "ai-company-market",
+    "variation": 3,
+    "name": "MCP Market",
+    "file": "ai-company-market/variation-03.html",
+    "reference": "https://mcpmarket.com/tools/skills"
+  },
+  {
+    "brand": "AI Company Market",
+    "folder": "ai-company-market",
+    "variation": 4,
+    "name": "Technical Registry",
+    "file": "ai-company-market/variation-04.html",
+    "reference": "https://www.claudemarketplace.net/mcp/claude-skills-mcp"
+  },
+  {
+    "brand": "AI Company Market",
+    "folder": "ai-company-market",
+    "variation": 5,
+    "name": "AI Templates",
+    "file": "ai-company-market/variation-05.html",
+    "reference": "https://www.aitmpl.com/"
+  },
+  {
+    "brand": "AI Company Market",
+    "folder": "ai-company-market",
+    "variation": 6,
+    "name": "Inference Utility",
+    "file": "ai-company-market/variation-06.html",
+    "reference": "../../Token Works/index.html"
+  },
+  {
+    "brand": "AI Company Market",
+    "folder": "ai-company-market",
+    "variation": 7,
+    "name": "Open Intelligence",
+    "file": "ai-company-market/variation-07.html",
+    "reference": "../../Token Works/variation-02.html"
+  }
+]

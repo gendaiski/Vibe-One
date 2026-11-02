@@ -1,0 +1,1128 @@
+{
+  "source": "D:/Dropbox/Claude Projects/Personal Development/CV 2025/Ahmed El Gendy — Career & Systems Hub.html",
+  "sourceHash": "10704738a5c1eba64357cfe99ad84d24ae54eab572779558fe2542eb2f26cb3c",
+  "counts": {
+    "skills": 160,
+    "mcps": 14,
+    "systems": 12,
+    "agents": 151,
+    "resources": 133
+  },
+  "files": [
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/lawyers-and-ai.plugin",
+      "status": "copied",
+      "bytes": 17751
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/contract-review-redline/SKILL.md",
+      "status": "copied",
+      "bytes": 3373
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/grounded-legal-research/SKILL.md",
+      "status": "copied",
+      "bytes": 3510
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/lawyers-ai-master/SKILL.md",
+      "status": "copied",
+      "bytes": 4076
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/legal-advice-comms/SKILL.md",
+      "status": "copied",
+      "bytes": 3178
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/legal-agent-workflows/SKILL.md",
+      "status": "copied",
+      "bytes": 3327
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/legal-ai-governance/SKILL.md",
+      "status": "copied",
+      "bytes": 3387
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/legal-drafting/SKILL.md",
+      "status": "copied",
+      "bytes": 3366
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/legal-matter-framing/SKILL.md",
+      "status": "copied",
+      "bytes": 3082
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/legal-second-brain/SKILL.md",
+      "status": "copied",
+      "bytes": 2820
+    },
+    {
+      "path": "11 Resources/playbook/Lawyers & AI Skills/litigation-advocacy/SKILL.md",
+      "status": "copied",
+      "bytes": 3148
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/agent-skills-builder/SKILL.md",
+      "status": "copied",
+      "bytes": 5424
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/agent-workflows/SKILL.md",
+      "status": "copied",
+      "bytes": 5178
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/ai-book-master/SKILL.md",
+      "status": "copied",
+      "bytes": 5781
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/ai-coding-agents/SKILL.md",
+      "status": "copied",
+      "bytes": 5190
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/ai-engineering/SKILL.md",
+      "status": "copied",
+      "bytes": 5368
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/ai-product-builder/SKILL.md",
+      "status": "copied",
+      "bytes": 5005
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/ai-safety-governance/SKILL.md",
+      "status": "copied",
+      "bytes": 5401
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/apis/SKILL.md",
+      "status": "copied",
+      "bytes": 5051
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/codesandbox/SKILL.md",
+      "status": "copied",
+      "bytes": 4462
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/codewords/SKILL.md",
+      "status": "copied",
+      "bytes": 5040
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/coding-series/SKILL.md",
+      "status": "copied",
+      "bytes": 4536
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/comfyui/SKILL.md",
+      "status": "copied",
+      "bytes": 5484
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/cursor/SKILL.md",
+      "status": "copied",
+      "bytes": 5406
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/dashboards-bi/SKILL.md",
+      "status": "copied",
+      "bytes": 5662
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/deploy-agents-assistant/SKILL.md",
+      "status": "copied",
+      "bytes": 5685
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/designing-with-claude/SKILL.md",
+      "status": "copied",
+      "bytes": 5416
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/docker/SKILL.md",
+      "status": "copied",
+      "bytes": 5364
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/evals-testing/SKILL.md",
+      "status": "copied",
+      "bytes": 5456
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/figma/SKILL.md",
+      "status": "copied",
+      "bytes": 5386
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/framer/SKILL.md",
+      "status": "copied",
+      "bytes": 5689
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/git-github/SKILL.md",
+      "status": "copied",
+      "bytes": 5713
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/local-models-hermes/SKILL.md",
+      "status": "copied",
+      "bytes": 5505
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/lovable/SKILL.md",
+      "status": "copied",
+      "bytes": 4968
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/managed-agents/SKILL.md",
+      "status": "copied",
+      "bytes": 5897
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/mcp-connector/SKILL.md",
+      "status": "copied",
+      "bytes": 6076
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/meshy/SKILL.md",
+      "status": "copied",
+      "bytes": 3800
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/n8n-automation/SKILL.md",
+      "status": "copied",
+      "bytes": 6442
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/obsidian/SKILL.md",
+      "status": "copied",
+      "bytes": 6011
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/openclaw/SKILL.md",
+      "status": "copied",
+      "bytes": 7518
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/prompt-engineering/SKILL.md",
+      "status": "copied",
+      "bytes": 6288
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/rivet/SKILL.md",
+      "status": "copied",
+      "bytes": 6032
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/second-brain/SKILL.md",
+      "status": "copied",
+      "bytes": 6300
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/vellum/SKILL.md",
+      "status": "copied",
+      "bytes": 6276
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/vscode/SKILL.md",
+      "status": "copied",
+      "bytes": 5868
+    },
+    {
+      "path": "11 Resources/playbook/AI Book Skills/ultimate-ai-book.plugin",
+      "status": "copied",
+      "bytes": 391919
+    },
+    {
+      "path": "11 Resources/skills/ecc-frontend/SKILL.md",
+      "status": "copied",
+      "bytes": 5435
+    },
+    {
+      "path": "11 Resources/skills/ecc-audit/SKILL.md",
+      "status": "copied",
+      "bytes": 3709
+    },
+    {
+      "path": "11 Resources/skills/three-directions/SKILL.md",
+      "status": "copied",
+      "bytes": 6712
+    },
+    {
+      "path": "11 Resources/skills/ahmed-el-gendy-agentic-ai-law-firm/SKILL.md",
+      "status": "copied",
+      "bytes": 23724
+    },
+    {
+      "path": "11 Resources/skills/ahmed-el-gendy-agentic-law-firm-core/SKILL.md",
+      "status": "copied",
+      "bytes": 7820
+    },
+    {
+      "path": "11 Resources/skills/legal-clause-bank/SKILL.md",
+      "status": "copied",
+      "bytes": 1019
+    },
+    {
+      "path": "11 Resources/skills/charter-house/SKILL.md",
+      "status": "copied",
+      "bytes": 9596
+    },
+    {
+      "path": "11 Resources/skills/el-gendy-game-studios/SKILL.md",
+      "status": "copied",
+      "bytes": 9115
+    },
+    {
+      "path": "11 Resources/skills/official-playlist-frontend/SKILL.md",
+      "status": "copied",
+      "bytes": 11894
+    },
+    {
+      "path": "11 Resources/skills/social-post-carousel-design/SKILL.md",
+      "status": "copied",
+      "bytes": 12372
+    },
+    {
+      "path": "11 Resources/skills/dashboard-001/SKILL.md",
+      "status": "copied",
+      "bytes": 6883
+    },
+    {
+      "path": "11 Resources/skills/ultimate-frontend-uiux/SKILL.md",
+      "status": "copied",
+      "bytes": 13375
+    },
+    {
+      "path": "11 Resources/skills/senior-build-inspection/SKILL.md",
+      "status": "copied",
+      "bytes": 7243
+    },
+    {
+      "path": "11 Resources/skills/visual-self-verify/SKILL.md",
+      "status": "copied",
+      "bytes": 4401
+    },
+    {
+      "path": "11 Resources/skills/transcribe-voice-notes/SKILL.md",
+      "status": "copied",
+      "bytes": 8315
+    },
+    {
+      "path": "11 Resources/skills/docx/SKILL.md",
+      "status": "copied",
+      "bytes": 6911
+    },
+    {
+      "path": "11 Resources/skills/pdf/SKILL.md",
+      "status": "copied",
+      "bytes": 8072
+    },
+    {
+      "path": "11 Resources/skills/pptx/SKILL.md",
+      "status": "copied",
+      "bytes": 21574
+    },
+    {
+      "path": "11 Resources/skills/xlsx/SKILL.md",
+      "status": "copied",
+      "bytes": 8598
+    },
+    {
+      "path": "11 Resources/skills/skill-creator/SKILL.md",
+      "status": "copied",
+      "bytes": 33351
+    },
+    {
+      "path": "11 Resources/skills/skill-auditor/SKILL.md",
+      "status": "copied",
+      "bytes": 5054
+    },
+    {
+      "path": "11 Resources/skills/morning/SKILL.md",
+      "status": "copied",
+      "bytes": 18163
+    },
+    {
+      "path": "11 Resources/skills/schedule/SKILL.md",
+      "status": "copied",
+      "bytes": 2399
+    },
+    {
+      "path": "11 Resources/skills/setup-cowork/SKILL.md",
+      "status": "copied",
+      "bytes": 12029
+    },
+    {
+      "path": "11 Resources/skills/explain-usage/SKILL.md",
+      "status": "copied",
+      "bytes": 1384
+    },
+    {
+      "path": "11 Resources/skills/import-memory/SKILL.md",
+      "status": "copied",
+      "bytes": 10689
+    },
+    {
+      "path": "11 Resources/skills/consolidate-memory/SKILL.md",
+      "status": "copied",
+      "bytes": 1983
+    },
+    {
+      "path": "11 Resources/skills/video-production/SKILL.md",
+      "status": "copied",
+      "bytes": 14602
+    },
+    {
+      "path": "11 Resources/skills/bpm-analyzer/SKILL.md",
+      "status": "copied",
+      "bytes": 6923
+    },
+    {
+      "path": "11 Resources/skills/sparrow-animation-production/SKILL.md",
+      "status": "copied",
+      "bytes": 2832
+    },
+    {
+      "path": "11 Resources/skills/sparrow-build-verify/SKILL.md",
+      "status": "copied",
+      "bytes": 2612
+    },
+    {
+      "path": "11 Resources/skills/sparrow-canon/SKILL.md",
+      "status": "copied",
+      "bytes": 4064
+    },
+    {
+      "path": "11 Resources/skills/sparrow-chapter-writing/SKILL.md",
+      "status": "copied",
+      "bytes": 2340
+    },
+    {
+      "path": "11 Resources/skills/sparrow-chartwright/SKILL.md",
+      "status": "copied",
+      "bytes": 3930
+    },
+    {
+      "path": "11 Resources/skills/sparrow-map-engraving/SKILL.md",
+      "status": "copied",
+      "bytes": 4677
+    },
+    {
+      "path": "11 Resources/skills/sparrow-site-design/SKILL.md",
+      "status": "copied",
+      "bytes": 2515
+    },
+    {
+      "path": "11 Resources/skills/council/SKILL.md",
+      "status": "copied",
+      "bytes": 7605
+    },
+    {
+      "path": "11 Resources/skills/interactive-prototype-builder/SKILL.md",
+      "status": "copied",
+      "bytes": 15672
+    },
+    {
+      "path": "11 Resources/skills/sparrow-chartwright-plugin/sparrow-chartwright.plugin",
+      "status": "copied",
+      "bytes": 6590
+    },
+    {
+      "path": "11 Resources/departments/managing-client-intake/SKILL.md",
+      "status": "copied",
+      "bytes": 3238
+    },
+    {
+      "path": "11 Resources/departments/managing-projects/SKILL.md",
+      "status": "copied",
+      "bytes": 3252
+    },
+    {
+      "path": "11 Resources/departments/supervising-quality/SKILL.md",
+      "status": "copied",
+      "bytes": 3209
+    },
+    {
+      "path": "11 Resources/departments/content-ops-manager/SKILL.md",
+      "status": "copied",
+      "bytes": 4035
+    },
+    {
+      "path": "11 Resources/departments/designing-carousels/SKILL.md",
+      "status": "copied",
+      "bytes": 2456
+    },
+    {
+      "path": "11 Resources/departments/drafting-social-posts/SKILL.md",
+      "status": "copied",
+      "bytes": 3068
+    },
+    {
+      "path": "11 Resources/departments/editing-prose/SKILL.md",
+      "status": "copied",
+      "bytes": 2780
+    },
+    {
+      "path": "11 Resources/departments/producing-content/SKILL.md",
+      "status": "copied",
+      "bytes": 2605
+    },
+    {
+      "path": "11 Resources/departments/writing-seo-content/SKILL.md",
+      "status": "copied",
+      "bytes": 3147
+    },
+    {
+      "path": "11 Resources/departments/growth-manager/SKILL.md",
+      "status": "copied",
+      "bytes": 3820
+    },
+    {
+      "path": "11 Resources/departments/monitoring-competitors/SKILL.md",
+      "status": "copied",
+      "bytes": 2164
+    },
+    {
+      "path": "11 Resources/departments/researching-markets/SKILL.md",
+      "status": "copied",
+      "bytes": 3200
+    },
+    {
+      "path": "11 Resources/departments/running-outreach/SKILL.md",
+      "status": "copied",
+      "bytes": 2420
+    },
+    {
+      "path": "11 Resources/departments/handling-support-tickets/SKILL.md",
+      "status": "copied",
+      "bytes": 2042
+    },
+    {
+      "path": "11 Resources/departments/support-manager/SKILL.md",
+      "status": "copied",
+      "bytes": 3013
+    },
+    {
+      "path": "11 Resources/departments/synthesising-feedback/SKILL.md",
+      "status": "copied",
+      "bytes": 1930
+    },
+    {
+      "path": "11 Resources/departments/triaging-support-tickets/SKILL.md",
+      "status": "copied",
+      "bytes": 2153
+    },
+    {
+      "path": "11 Resources/departments/checking-compliance/SKILL.md",
+      "status": "copied",
+      "bytes": 4101
+    },
+    {
+      "path": "11 Resources/departments/drafting-bilingual-contracts/SKILL.md",
+      "status": "copied",
+      "bytes": 6358
+    },
+    {
+      "path": "11 Resources/departments/drafting-legal-memos/SKILL.md",
+      "status": "copied",
+      "bytes": 3753
+    },
+    {
+      "path": "11 Resources/departments/intaking-contracts/SKILL.md",
+      "status": "copied",
+      "bytes": 2148
+    },
+    {
+      "path": "11 Resources/departments/legal-counsel-bahrain/SKILL.md",
+      "status": "copied",
+      "bytes": 7401
+    },
+    {
+      "path": "11 Resources/departments/legal-counsel-egypt/SKILL.md",
+      "status": "copied",
+      "bytes": 7607
+    },
+    {
+      "path": "11 Resources/departments/legal-counsel-gcc/SKILL.md",
+      "status": "copied",
+      "bytes": 6819
+    },
+    {
+      "path": "11 Resources/departments/legal-counsel-ksa/SKILL.md",
+      "status": "copied",
+      "bytes": 7780
+    },
+    {
+      "path": "11 Resources/departments/legal-counsel-kuwait/SKILL.md",
+      "status": "copied",
+      "bytes": 7207
+    },
+    {
+      "path": "11 Resources/departments/legal-counsel-oman/SKILL.md",
+      "status": "copied",
+      "bytes": 7273
+    },
+    {
+      "path": "11 Resources/departments/legal-counsel-qatar/SKILL.md",
+      "status": "copied",
+      "bytes": 7313
+    },
+    {
+      "path": "11 Resources/departments/legal-counsel-uae/SKILL.md",
+      "status": "copied",
+      "bytes": 7722
+    },
+    {
+      "path": "11 Resources/departments/legal-ops-manager/SKILL.md",
+      "status": "copied",
+      "bytes": 3117
+    },
+    {
+      "path": "11 Resources/departments/qualifying-as-uk-solicitor/SKILL.md",
+      "status": "copied",
+      "bytes": 3581
+    },
+    {
+      "path": "11 Resources/departments/reviewing-commercial-contracts/SKILL.md",
+      "status": "copied",
+      "bytes": 4888
+    },
+    {
+      "path": "11 Resources/departments/reviewing-data-protection/SKILL.md",
+      "status": "copied",
+      "bytes": 3676
+    },
+    {
+      "path": "11 Resources/departments/translating-languages/SKILL.md",
+      "status": "copied",
+      "bytes": 3902
+    },
+    {
+      "path": "11 Resources/departments/translating-legal-documents/SKILL.md",
+      "status": "copied",
+      "bytes": 4029
+    },
+    {
+      "path": "11 Resources/departments/triaging-ndas/SKILL.md",
+      "status": "copied",
+      "bytes": 3229
+    },
+    {
+      "path": "11 Resources/departments/analyzing-datasets/SKILL.md",
+      "status": "copied",
+      "bytes": 2844
+    },
+    {
+      "path": "11 Resources/departments/budgeting-and-forecasting/SKILL.md",
+      "status": "copied",
+      "bytes": 2550
+    },
+    {
+      "path": "11 Resources/departments/building-financial-models/SKILL.md",
+      "status": "copied",
+      "bytes": 2850
+    },
+    {
+      "path": "11 Resources/departments/reporting-manager/SKILL.md",
+      "status": "copied",
+      "bytes": 3044
+    },
+    {
+      "path": "11 Resources/departments/reporting-monthly-financials/SKILL.md",
+      "status": "copied",
+      "bytes": 2153
+    },
+    {
+      "path": "11 Resources/departments/appraising-gemstones/SKILL.md",
+      "status": "copied",
+      "bytes": 3054
+    },
+    {
+      "path": "11 Resources/departments/classifying-egyptian-cotton/SKILL.md",
+      "status": "copied",
+      "bytes": 3667
+    },
+    {
+      "path": "11 Resources/departments/monitoring-compliance/SKILL.md",
+      "status": "copied",
+      "bytes": 2098
+    },
+    {
+      "path": "11 Resources/departments/structuring-trade-finance/SKILL.md",
+      "status": "copied",
+      "bytes": 3465
+    },
+    {
+      "path": "11 Resources/departments/trade-ops-manager/SKILL.md",
+      "status": "copied",
+      "bytes": 3252
+    },
+    {
+      "path": "11 Resources/departments/orchestrating-agents/SKILL.md",
+      "status": "copied",
+      "bytes": 3142
+    },
+    {
+      "path": "11 Resources/departments/screening-candidates/SKILL.md",
+      "status": "copied",
+      "bytes": 2791
+    },
+    {
+      "path": "11 Resources/departments/writing-job-descriptions/SKILL.md",
+      "status": "copied",
+      "bytes": 2626
+    },
+    {
+      "path": "11 Resources/departments/building-rag-systems/SKILL.md",
+      "status": "copied",
+      "bytes": 3178
+    },
+    {
+      "path": "11 Resources/departments/designing-systems/SKILL.md",
+      "status": "copied",
+      "bytes": 3246
+    },
+    {
+      "path": "11 Resources/departments/reviewing-app-security/SKILL.md",
+      "status": "copied",
+      "bytes": 2943
+    },
+    {
+      "path": "11 Resources/departments/reviewing-backend-code/SKILL.md",
+      "status": "copied",
+      "bytes": 2999
+    },
+    {
+      "path": "11 Resources/departments/reviewing-frontend-code/SKILL.md",
+      "status": "copied",
+      "bytes": 3194
+    },
+    {
+      "path": "11 Resources/departments/writing-tests/SKILL.md",
+      "status": "copied",
+      "bytes": 2705
+    },
+    {
+      "path": "11 Resources/departments/managing-knowledge-base/SKILL.md",
+      "status": "copied",
+      "bytes": 2828
+    },
+    {
+      "path": "11 Resources/departments/writing-prds/SKILL.md",
+      "status": "copied",
+      "bytes": 2635
+    },
+    {
+      "path": "11 Resources/departments/advising-realestate-jurisdiction/SKILL.md",
+      "status": "copied",
+      "bytes": 3531
+    },
+    {
+      "path": "11 Resources/departments/checking-realestate-compliance/SKILL.md",
+      "status": "copied",
+      "bytes": 3341
+    },
+    {
+      "path": "11 Resources/departments/coordinating-transactions/SKILL.md",
+      "status": "copied",
+      "bytes": 3198
+    },
+    {
+      "path": "11 Resources/departments/intaking-listings/SKILL.md",
+      "status": "copied",
+      "bytes": 2663
+    },
+    {
+      "path": "11 Resources/departments/marketing-listings/SKILL.md",
+      "status": "copied",
+      "bytes": 2397
+    },
+    {
+      "path": "11 Resources/departments/negotiating-offers/SKILL.md",
+      "status": "copied",
+      "bytes": 2270
+    },
+    {
+      "path": "11 Resources/departments/qualifying-buyers/SKILL.md",
+      "status": "copied",
+      "bytes": 2441
+    },
+    {
+      "path": "11 Resources/departments/real-estate-ops-manager/SKILL.md",
+      "status": "copied",
+      "bytes": 3220
+    },
+    {
+      "path": "11 Resources/departments/scheduling-viewings/SKILL.md",
+      "status": "copied",
+      "bytes": 2251
+    },
+    {
+      "path": "11 Resources/departments/valuing-property/SKILL.md",
+      "status": "copied",
+      "bytes": 2377
+    },
+    {
+      "path": "11 Resources/departments/ultimate-ai-book-builder/SKILL.md",
+      "status": "copied",
+      "bytes": 6850
+    },
+    {
+      "path": "11 Resources/skills/full-site-audit/SKILL.md",
+      "status": "copied",
+      "bytes": 7688
+    },
+    {
+      "path": "11 Resources/skills/assessing-pearls/SKILL.md",
+      "status": "copied",
+      "bytes": 1987
+    },
+    {
+      "path": "11 Resources/skills/building-data-pipelines/SKILL.md",
+      "status": "copied",
+      "bytes": 1968
+    },
+    {
+      "path": "11 Resources/skills/designing-lessons/SKILL.md",
+      "status": "copied",
+      "bytes": 1841
+    },
+    {
+      "path": "11 Resources/skills/evaluating-ai-outputs/SKILL.md",
+      "status": "copied",
+      "bytes": 1923
+    },
+    {
+      "path": "11 Resources/skills/managing-devops/SKILL.md",
+      "status": "copied",
+      "bytes": 2006
+    },
+    {
+      "path": "11 Resources/skills/translating-documents/SKILL.md",
+      "status": "copied",
+      "bytes": 1942
+    },
+    {
+      "path": "11 Resources/Lawyers & AI/Lawyers & AI Deliverables/Lawyers & AI.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Lawyers & AI/Lawyers & AI Deliverables/Someone.Lawyer - Newsletter Issue 1.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Guides & Catalogues/AI Agent Departments - Product Catalog & Blueprint.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/The Ultimate Book/Instagram Carousel/Ultimate-AI-Book-Carousel.pdf",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/The Ultimate Book/Ultimate Book/The Ultimate AI Book.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/The Ultimate Book/Ultimate Book/The Ultimate AI Book.pdf",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/The Ultimate Book/Ultimate Book/The Ultimate Web Design, Development and AI.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Diagrams & Assets/Ecosystem Diagram.png",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Diagrams & Assets/Ecosystem Diagram.svg",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Guides & Catalogues/AGENTS & SKILLS — Master Catalogue & AI Companies (Memory).md",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Guides & Catalogues/AI Agents & Managers — Catalog.md",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Guides & Catalogues/MASTER GUIDE — Everything Explained.md",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Guides & Catalogues/PROPOSAL — Book Structure & Threading.md",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Guides & Catalogues/What We've Built — Session Build Inventory.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Prompting & Courses/The Prompts Playbook (Product) (reorganized).docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Prompting & Courses/The Prompts Playbook (Product).docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Prompting & Courses/The Ultimate Prompt Engineering Course.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Social & Content/LinkedIn Posts Playbook.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Social & Content/Master Social Media Posts Playbook.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Social & Content/Technology Playbook.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Playbooks & Content/Social & Content/The Content Playbook.docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Agents & Automation/AI Agent Departments (Installable)",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Agents & Automation/n8n Workflows (Ready-Made)",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Agents & Automation/rag_toolkit",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/Specialist Business Project (AI Specialists)",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/n8n Flows (Directory)/Content-Draft-Approve.json",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/n8n Flows (Directory)/Contract-Intake-Route.json",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/n8n Flows (Directory)/Daily-Metrics-Digest.json",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/n8n Flows (Directory)/Lead-Qualify-Route.json",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/n8n Flows (Directory)/New-Skill-Announce.json",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "11 Resources/n8n Flows (Directory)/Support-Ticket-RAG-Reply.json",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "Blueprints/Blueprint - Agentic AI Law Firm.html",
+      "status": "copied",
+      "bytes": 76860
+    },
+    {
+      "path": "Blueprints/System Map - Agentic AI Law Firm.html",
+      "status": "copied",
+      "bytes": 24932
+    },
+    {
+      "path": "Blueprints/Blueprint - someone.lawyer Departments.html",
+      "status": "copied",
+      "bytes": 126602
+    },
+    {
+      "path": "Blueprints/System Map - someone.lawyer Departments.html",
+      "status": "copied",
+      "bytes": 32494
+    },
+    {
+      "path": "Blueprints/Blueprint - El Gendy Game Studios.html",
+      "status": "copied",
+      "bytes": 42745
+    },
+    {
+      "path": "Blueprints/System Map - El Gendy Game Studios.html",
+      "status": "copied",
+      "bytes": 18596
+    },
+    {
+      "path": "Blueprints/Blueprint - Gemstones & Pearls House.html",
+      "status": "copied",
+      "bytes": 41787
+    },
+    {
+      "path": "Blueprints/System Map - Gemstones & Pearls House.html",
+      "status": "copied",
+      "bytes": 17748
+    },
+    {
+      "path": "Blueprints/Blueprint - Charter House.html",
+      "status": "copied",
+      "bytes": 31797
+    },
+    {
+      "path": "Blueprints/System Map - Charter House.html",
+      "status": "copied",
+      "bytes": 15306
+    },
+    {
+      "path": "Blueprints/Blueprint - The Official Playlist.html",
+      "status": "copied",
+      "bytes": 30059
+    },
+    {
+      "path": "Blueprints/System Map - The Official Playlist.html",
+      "status": "copied",
+      "bytes": 15310
+    },
+    {
+      "path": "Blueprints/Blueprint - Content & Social Engine.html",
+      "status": "copied",
+      "bytes": 31694
+    },
+    {
+      "path": "Blueprints/System Map - Content & Social Engine.html",
+      "status": "copied",
+      "bytes": 15693
+    },
+    {
+      "path": "Blueprints/Blueprint - Ultimate AI Book.html",
+      "status": "copied",
+      "bytes": 29984
+    },
+    {
+      "path": "Blueprints/System Map - Ultimate AI Book.html",
+      "status": "copied",
+      "bytes": 15144
+    },
+    {
+      "path": "Blueprints/Blueprint - The Law Tech Labs.html",
+      "status": "copied",
+      "bytes": 29864
+    },
+    {
+      "path": "Blueprints/System Map - The Law Tech Labs.html",
+      "status": "copied",
+      "bytes": 15463
+    },
+    {
+      "path": "Blueprints/Blueprint - Egyptian Cotton Company.html",
+      "status": "copied",
+      "bytes": 27652
+    },
+    {
+      "path": "Blueprints/System Map - Egyptian Cotton Company.html",
+      "status": "copied",
+      "bytes": 13760
+    },
+    {
+      "path": "Blueprints/Blueprint - FishCode.html",
+      "status": "copied",
+      "bytes": 25895
+    },
+    {
+      "path": "Blueprints/System Map - FishCode.html",
+      "status": "copied",
+      "bytes": 13333
+    },
+    {
+      "path": "Blueprints/Blueprint - Design & Build Guild.html",
+      "status": "copied",
+      "bytes": 28900
+    },
+    {
+      "path": "Blueprints/System Map - Design & Build Guild.html",
+      "status": "copied",
+      "bytes": 13620
+    },
+    {
+      "path": "06 AI Agentic Systems & Workflows/AI Agentic Systems & Workflows Portfolio (Tables) - Full (Named).docx",
+      "status": "copied",
+      "bytes": 43924
+    },
+    {
+      "path": "06 AI Agentic Systems & Workflows/AI Agentic Systems & Workflows Portfolio (Tables) - Confidential (Anonymised).docx",
+      "status": "copied",
+      "bytes": 43852
+    },
+    {
+      "path": "07 AI Agent Skills/AI Agent Skills Portfolio (Tables) - Full (Named).docx",
+      "status": "copied",
+      "bytes": 39849
+    },
+    {
+      "path": "07 AI Agent Skills/AI Agent Skills Portfolio (Tables) - Confidential (Anonymised).docx",
+      "status": "copied",
+      "bytes": 39804
+    },
+    {
+      "path": "06 AI Agentic Systems & Workflows/Bullet-point version/AI Agentic Systems & Workflows Portfolio - Full (Named).docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "06 AI Agentic Systems & Workflows/Bullet-point version/AI Agentic Systems & Workflows Portfolio - Confidential (Anonymised).docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "07 AI Agent Skills/Bullet-point version/AI Agent Skills Portfolio - Full (Named).docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    },
+    {
+      "path": "07 AI Agent Skills/Bullet-point version/AI Agent Skills Portfolio - Confidential (Anonymised).docx",
+      "status": "missing",
+      "reason": "ENOENT"
+    }
+  ]
+}

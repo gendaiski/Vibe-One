@@ -1,0 +1,22 @@
+﻿brand,id,name,source,owner,licence,status,source_status,acquisition,checked
+Someone.lawyer,courtlistener,CourtListener,https://github.com/freelawproject/courtlistener,Free Law Project,AGPL-3.0-or-later,Not assessed,primary_page_reviewed,metadata_only,2026-09-27
+Someone.lawyer,docassemble,docassemble,https://github.com/jhpyle/docassemble,Jonathan Pyle and contributors,MIT,Not assessed,primary_page_reviewed,metadata_only,2026-09-27
+Someone.lawyer,eyecite,eyecite,https://github.com/freelawproject/eyecite,Free Law Project and contributors,BSD-2-Clause,Not assessed,primary_page_reviewed,metadata_only,2026-09-27
+Someone.lawyer,github-mcp,GitHub MCP Server,https://github.com/github/github-mcp-server,GitHub,MIT,Not assessed,primary_page_reviewed,metadata_only,2026-09-27
+Someone.lawyer,matter-map,Matter Map,,Fictional Matter Map Studio,Demo — no licence grant,Demo only,fictional,fictional,
+Someone.lawyer,clause-lens,Clause Lens,,Fictional Clause Lens Lab,Demo — no licence grant,Demo only,fictional,fictional,
+Someone.lawyer,evidence-room,Evidence Room,,Fictional Evidence Room Team,Demo — no licence grant,Demo only,fictional,fictional,
+Someone.lawyer,privacy-desk,Privacy Desk,,Fictional Privacy Desk,Demo — no licence grant,Demo only,fictional,fictional,
+Someone.lawyer,legal-operations,Legal Operations Studio,,Fictional Legal Operations Studio,Demo — no licence grant,Demo only,fictional,fictional,
+Someone.lawyer,research-practice,Research Practice,,Fictional Research Practice,Demo — no licence grant,Demo only,fictional,fictional,
+AI Company Market,langflow,Langflow,https://github.com/langflow-ai/langflow,Langflow contributors,MIT,Not assessed,primary_page_reviewed,metadata_only,2026-09-27
+AI Company Market,github-mcp,GitHub MCP Server,https://github.com/github/github-mcp-server,GitHub,MIT,Not assessed,primary_page_reviewed,metadata_only,2026-09-27
+AI Company Market,mcp-reference,MCP reference servers,https://github.com/modelcontextprotocol/servers,Model Context Protocol contributors,Apache-2.0 new / MIT existing,Not assessed,primary_page_reviewed,metadata_only,2026-09-27
+AI Company Market,autogen,AutoGen,https://github.com/microsoft/autogen,Microsoft and contributors,MIT code / CC-BY-4.0 docs,Maintenance mode,primary_page_reviewed,metadata_only,2026-09-27
+AI Company Market,claude-skills-mcp,Claude Skills MCP,https://github.com/K-Dense-AI/claude-skills-mcp,K-Dense AI,Not independently verified,Deprecated,directory_notice_reviewed,metadata_only,2026-09-27
+AI Company Market,operations-crew,Operations Crew,,Fictional Operations Crew,Demo — no licence grant,Demo only,fictional,fictional,
+AI Company Market,company-memory,Company Memory Kit,,Fictional Memory Works,Demo — no licence grant,Demo only,fictional,fictional,
+AI Company Market,handoff-skill,Handoff Skill,,Fictional Handoff Lab,Demo — no licence grant,Demo only,fictional,fictional,
+AI Company Market,workspace-bridge,Workspace Bridge,,Fictional Bridge Studio,Demo — no licence grant,Demo only,fictional,fictional,
+AI Company Market,workflow-partner,Workflow Partners,,Fictional Workflow Partners,Demo — no licence grant,Demo only,fictional,fictional,
+AI Company Market,brain-studio,Company Brain Studio,,Fictional Brain Studio,Demo — no licence grant,Demo only,fictional,fictional,

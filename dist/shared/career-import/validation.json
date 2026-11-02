@@ -1,0 +1,145 @@
+{
+  "checks": [
+    {
+      "file": "Someone-Lawyer-All-Designs.html",
+      "scripts": 4,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "AI-Company-Market-All-Designs.html",
+      "scripts": 4,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "someone-lawyer/index.html",
+      "scripts": 4,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "someone-lawyer/variation-01.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "someone-lawyer/variation-02.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "someone-lawyer/variation-03.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "someone-lawyer/variation-04.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "someone-lawyer/variation-05.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "ai-company-market/index.html",
+      "scripts": 4,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "ai-company-market/variation-01.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "ai-company-market/variation-02.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "ai-company-market/variation-03.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "ai-company-market/variation-04.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    },
+    {
+      "file": "ai-company-market/variation-05.html",
+      "scripts": 2,
+      "skills": 160,
+      "mcps": 14,
+      "systems": 12,
+      "resources": 133,
+      "embeddedFiles": 184
+    }
+  ],
+  "assetHashesVerified": 184,
+  "brandCareerDocumentsIncluded": 0,
+  "hubScriptsCompiled": 3,
+  "browser": {
+    "verified": [
+      "Someone.lawyer design 1 skill search and detail",
+      "Embedded SKILL.md preview",
+      "AI system blueprint iframe renders source contents",
+      "Someone.lawyer design 5 resource board and category filter",
+      "AI Company Market design 3 MCP detail and overview"
+    ],
+    "hub": "File URL blocked by browser policy; script validation only",
+    "mobile": "Viewport override did not take effect; not verified"
+  },
+  "originalHubUnchanged": true
+}

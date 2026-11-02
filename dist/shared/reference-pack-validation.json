@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-28",
+  "brands": [
+    "Someone.lawyer",
+    "AI Company Market"
+  ],
+  "variationsPerBrand": 7,
+  "browserChecks": {
+    "routes": 14,
+    "resourceCardsPerRoute": 34,
+    "personalResourceBoardLinksPerRoute": 1,
+    "referenceSidebarGroupsPerRoute": 1,
+    "consoleErrors": 0
+  },
+  "functionalChecks": [
+    "FounderOS embedded HTML rendered inside Someone.lawyer dialog",
+    "AI Company Market resource search Ollama returned correct record and provenance",
+    "Source links distinguish identified destination from missing original"
+  ],
+  "personalData": "Existing career-import datasets unchanged",
+  "resources": {
+    "total": 34,
+    "identifiedOfficialDestinations": 23,
+    "candidates": 2,
+    "unresolved": 9
+  },
+  "cloneParity": "Not identical; inspect project coverage ledgers"
+}

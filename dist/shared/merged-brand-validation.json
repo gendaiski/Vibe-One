@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-28",
+  "files": [
+    "Someone-Lawyer-All-Designs.html",
+    "AI-Company-Market-All-Designs.html"
+  ],
+  "designsPerFile": 5,
+  "embeddedCatalogueRecords": 537221,
+  "desktopLandingChecks": 10,
+  "mobileDetailChecks": 10,
+  "horizontalOverflow": 0,
+  "headerSwitchPreservesRoute": true,
+  "hubIframeCatalogueVerified": true,
+  "previewFailure": "Local preview server was not running; port 4193 restarted.",
+  "standaloneFileProtocolBrowserTested": false,
+  "externalImages": "Uncached publisher images remain remote; vector fallbacks remain available."
+}

@@ -1,0 +1,48 @@
+
+/* Token Works design systems adapted to the complete brand application. */
+body.brand-refined[data-variant="6"]{--bg:#101310;--panel:#171b17;--paper:#171b17;--surface:#171b17;--ink:#f1f5ed;--muted:#b5bfb2;--line:#343d34;--accent:#c2f970;--tint:#202620;--accent-ink:#15210a;--tw-radius:4px;--tw-shadow:none;--catalogue-side:246px;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',Geist,Arial,sans-serif}
+body.brand-refined[data-variant="6"][data-theme="light"]{--bg:#f2f4ed;--panel:#fff;--paper:#fff;--surface:#fff;--ink:#172013;--muted:#47553f;--line:#c9d1c0;--accent:#365e0b;--tint:#e6eadd;--accent-ink:#fff}
+body.brand-refined[data-variant="7"]{--bg:#f5f7fc;--panel:#fff;--paper:#fff;--surface:#fff;--ink:#132342;--muted:#52627e;--line:#d9e0ee;--accent:#2457ea;--tint:#eaf0fc;--accent-ink:#fff;--tw-radius:18px;--tw-shadow:0 5px 25px #13234208;--catalogue-side:246px;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',Geist,Arial,sans-serif}
+body.brand-refined[data-variant="7"][data-theme="dark"]{--bg:#101b30;--panel:#182640;--paper:#182640;--surface:#182640;--ink:#f2f6ff;--muted:#b8c8e0;--line:#354864;--accent:#adc9ff;--tint:#213455;--accent-ink:#142e61}
+body.brand-refined:is([data-variant="6"],[data-variant="7"])[data-theme="contrast"]{--bg:#000;--panel:#080808;--surface:#080808;--paper:#080808;--ink:#fff;--muted:#eee;--line:#bbb;--accent:#ffff00;--tint:#222;--accent-ink:#000}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.universal-sidebar,.topbar,.footer,.reference-header,.nav-drop>div,.mobile-menu>div,.review-dock>div,dialog){background:var(--panel);color:var(--ink);border-color:var(--line);box-shadow:var(--tw-shadow)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.universal-sidebar nav a,.universal-sidebar summary){border-radius:var(--tw-radius);color:var(--muted)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.universal-sidebar nav a:hover,.universal-sidebar summary:hover){background:var(--tint);color:var(--ink)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) .universal-sidebar nav a[aria-current="page"]{background:var(--accent);color:var(--accent-ink)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.card,.panel,.readme,.doc-side,.component-identity,.resource-sidebar,.link-tile,.form,.my-card,.my-stats a,.code-explorer,.terminal-window,.install-panel,.searchbox,.catalogue-source-bar,.source-trace,.feature-strip a,.connect-box){background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--tw-radius);box-shadow:var(--tw-shadow)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(input,select,textarea,button,.secondary,.chip,.badge,.coverage-badge){background:var(--panel);color:var(--ink);border-color:var(--line);border-radius:var(--tw-radius)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.primary,button.primary,.chip.active){background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.resource-icon,.component-icon){background:var(--tint);color:var(--accent);border:1px solid var(--line);border-radius:var(--tw-radius)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.catalogue-card-meta,.resource-summary,.reference-hero p,.page-title p,.my-title p,.side-label,.side-foot,.my-card p,.readme p){color:var(--muted)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.code-explorer pre,.code-editor,.code-content,.file-tree,.code,.terminal,.terminal-body){background:var(--bg);color:var(--ink);border-color:var(--line)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(th,td){border-color:var(--line)}body.brand-refined:is([data-variant="6"],[data-variant="7"]) th{background:var(--tint);color:var(--muted)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) :is(.my-preview,.my-preview button){background:var(--panel);color:var(--ink);border-color:var(--line)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) .my-preview header{border-color:var(--line)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) .my-feature{background:var(--accent);color:var(--accent-ink);border-radius:var(--tw-radius)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) .my-feature :is(p,a,.my-kicker){color:inherit}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) .my-orbit span{background:var(--panel);color:var(--ink)}
+body.brand-refined[data-variant="6"] :is(h1,h2,h3,.logo){font-family:'Space Grotesk',Geist,Arial,sans-serif}
+body.brand-refined[data-variant="6"] .reference-hero{padding:55px 0 35px;border-bottom:1px solid var(--line);margin-bottom:28px}
+body.brand-refined[data-variant="6"] .reference-hero h1{font-size:clamp(44px,6.5vw,104px);line-height:.97;letter-spacing:-.065em;font-weight:500;max-width:1100px}
+body.brand-refined[data-variant="6"] :is(.eyebrow,.my-kicker,.type-label,.side-label){color:var(--accent);font-family:'Geist Mono',monospace;letter-spacing:.12em}
+body.brand-refined[data-variant="6"] .topbar{box-shadow:none;border-bottom:1px solid var(--line);border-radius:0}
+body.brand-refined[data-variant="6"] .imported-card{padding:26px!important;transform:none!important}
+body.brand-refined[data-variant="6"] .imported-card:hover{border-color:var(--accent);box-shadow:inset 0 2px var(--accent)}
+body.brand-refined[data-variant="7"] .topbar{margin:18px 22px 0;border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 24px #13234208}
+body.brand-refined[data-variant="7"] .reference-hero{padding:52px 0 26px}
+body.brand-refined[data-variant="7"] :is(.reference-hero h1,.page-title h1,.my-title h1){font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.045em;font-size:clamp(40px,5.7vw,86px);line-height:1.08}
+body.brand-refined[data-variant="7"] :is(.primary,.secondary,.chip,.side-search,.header-design-switch select){border-radius:30px}
+body.brand-refined[data-variant="7"] .imported-card:hover{border-color:var(--accent);box-shadow:0 12px 30px #13234212}
+body.brand-refined[data-variant="7"] .my-stats a:first-child{background:var(--accent);color:var(--accent-ink)}
+body.brand-refined:is([data-variant="6"],[data-variant="7"]) .tw-direction-label{display:flex;gap:12px;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font:10px 'Geist Mono',monospace;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:22px}
+@media(max-width:650px){body.brand-refined[data-variant="7"] .topbar{margin:8px;border-radius:14px}body.brand-refined[data-variant="6"] .reference-hero h1{font-size:47px}body.brand-refined[data-variant="7"] :is(.reference-hero h1,.page-title h1,.my-title h1){font-size:42px}body.brand-refined:is([data-variant="6"],[data-variant="7"]) .reference-hero{padding:24px 0}body.brand-refined:is([data-variant="6"],[data-variant="7"]) .tw-direction-label{font-size:8px}}
+
+/* Consistent navigation interaction across all seven brand directions. */
+body.brand-refined .universal-sidebar{--nav-hover:#c2f970}
+body.brand-refined[data-theme="light"] .universal-sidebar{--nav-hover:#365e0b}
+body.brand-refined .universal-sidebar nav :is(a,summary){transition:color .16s ease,background-color .16s ease}
+body.brand-refined .universal-sidebar nav a:not([aria-current="page"]):is(:hover,:focus-visible),
+body.brand-refined .universal-sidebar nav summary:is(:hover,:focus-visible){background:transparent!important;color:var(--nav-hover)!important}
+body.brand-refined .universal-sidebar nav :is(a,summary):is(:hover,:focus-visible) .vector-icon{color:inherit}
+body.brand-refined[data-variant="6"] main h1 .tw-heading-accent{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){body.brand-refined .universal-sidebar nav :is(a,summary){transition:none}}

@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-27",
+  "scriptCompiles": true,
+  "verified": [
+    "Brand switch updates live preview",
+    "Variation switch updates live preview",
+    "Page selector applies selected inner route",
+    "Comparison displays two different variants on same route",
+    "Desktop preview width 1440",
+    "Mobile preview width 390",
+    "Focus mode and exit",
+    "No horizontal overflow at normal desktop width or 390px hub viewport",
+    "Visual inspection of hub header, variation chooser, toolbar and live preview"
+  ],
+  "preserved": "shared/hub-before-redesign.html",
+  "template": "shared/review-hub.html"
+}

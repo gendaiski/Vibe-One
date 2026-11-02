@@ -1,0 +1,39 @@
+{
+  "compiled": [
+    "someone-lawyer / 1",
+    "someone-lawyer / 2",
+    "someone-lawyer / 3",
+    "someone-lawyer / 4",
+    "someone-lawyer / 5",
+    "someone-lawyer / 6",
+    "someone-lawyer / 7",
+    "ai-company-market / 1",
+    "ai-company-market / 2",
+    "ai-company-market / 3",
+    "ai-company-market / 4",
+    "ai-company-market / 5",
+    "ai-company-market / 6",
+    "ai-company-market / 7"
+  ],
+  "designsPerBrand": 7,
+  "sourceSystems": [
+    "Token Works/elevated.css",
+    "Token Works/variation-02.css"
+  ],
+  "innerPageStyling": "Shared global theme and component styles apply to all routes",
+  "addedCatalogueSections": [
+    "UI Components Library",
+    "Figma Ready Templates",
+    "AI Agent",
+    "AI Company",
+    "AI Business Pod"
+  ],
+  "browserVerified": [
+    "Someone.lawyer Inference Utility landing",
+    "AI Company Market Open Intelligence product detail with code editor",
+    "Header switch retains inner product route",
+    "Inference Utility lime and charcoal computed colours",
+    "New UI Components Library route and empty state",
+    "Design Studio seven choices and embedded Open Intelligence preview"
+  ]
+}

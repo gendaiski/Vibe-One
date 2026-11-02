@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-28",
+  "scriptCompiles": true,
+  "checks": [
+    "Preset CSS applies to iframe",
+    "Element targeting captures selector and page",
+    "Add/remove design note",
+    "Generated CSS and Markdown visible",
+    "Draft persists after reload",
+    "Undo and restore original",
+    "Brand draft isolation",
+    "Zero radius supported",
+    "Preview loading overlay clears",
+    "Mobile 390px has no horizontal overflow"
+  ],
+  "scope": "Underlying brand websites unchanged; local preview drafts only"
+}

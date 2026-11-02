@@ -1,0 +1,27 @@
+{
+  "brand": "AI Company Market",
+  "palette": "midnight / slate / electric blue",
+  "body_font": "Arial",
+  "heading_font": "Arial",
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    48,
+    64
+  ],
+  "radius": [
+    3,
+    5,
+    8
+  ],
+  "themes": [
+    "light",
+    "dark",
+    "contrast"
+  ]
+}
