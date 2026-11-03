@@ -1,0 +1,14 @@
+{
+  "name": "Vibe Builder \u2014 Editable Carousel",
+  "id": "vibe-builder-editable-carousel",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}

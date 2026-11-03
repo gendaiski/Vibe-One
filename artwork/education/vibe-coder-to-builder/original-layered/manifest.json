@@ -1,0 +1,14 @@
+{
+  "name": "Original Vibe Carousel \u2014 Layered",
+  "id": "original-vibe-carousel-layered",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}

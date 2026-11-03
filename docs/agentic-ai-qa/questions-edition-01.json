@@ -1,0 +1,993 @@
+[
+  {
+    "name": "LLM fundamentals",
+    "topics": [
+      {
+        "name": "Tokens and context",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What is a token, and why do token counts matter for agents?",
+            "answer": "A token is a unit produced by a model’s tokenizer: it may represent a word, part of a word, punctuation, or other data. Agents accumulate instructions, tool schemas, tool results, and conversation history across steps. Token counts affect context capacity, latency, and often API cost. Measure with the tokenizer or usage metrics for the model you actually use; a fixed characters-per-token rule is only an estimate.",
+            "origin": "Provided images",
+            "id": "q-001"
+          },
+          {
+            "level": "Basic",
+            "question": "What is a context window, and what happens when you exceed it?",
+            "answer": "The context window is the maximum sequence a model can process for a request, subject to provider-specific input and output limits. Oversized requests may be rejected, or a surrounding application may truncate or summarize them. The model does not automatically retain everything omitted from its input. Reserve space for output and upcoming tool results, and explicitly preserve task state when compressing history.",
+            "origin": "Provided images",
+            "id": "q-002"
+          }
+        ]
+      },
+      {
+        "name": "Sampling and reliability",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "Explain temperature and top-p. When would you set temperature low?",
+            "answer": "Temperature changes how sharply the model favors high-probability next tokens. Top-p restricts sampling to a set of tokens whose cumulative probability reaches a threshold. Low temperature is often useful for extraction, classification, and consistent formatting. Neither setting guarantees correctness or determinism. Some models constrain or do not expose these parameters, so check the chosen API and evaluate rather than assuming universal settings.",
+            "origin": "Provided images",
+            "id": "q-003"
+          },
+          {
+            "level": "Mid",
+            "question": "Why can LLM outputs vary even at temperature 0?",
+            "answer": "Temperature 0 usually means selecting a highest-scoring token, but tiny numerical differences, distributed execution, changes to model versions, or provider implementation details can alter close decisions. Retrieval results, tools, and hidden application state can also change the effective input. Pin supported model versions, record complete inputs and tool results, and judge reproducibility statistically instead of assuming byte-identical output.",
+            "origin": "Provided images",
+            "id": "q-004"
+          },
+          {
+            "level": "Basic",
+            "question": "What causes hallucinations, and how do you reduce them in agents?",
+            "answer": "Models generate plausible continuations rather than checking truth automatically. Missing evidence, ambiguous instructions, unreliable retrieval, and unsupported inference can produce confident errors. Ground factual claims in trusted sources, require evidence for important claims, validate tool outputs, and let the system abstain when information is missing. Evaluate factuality and task outcomes; asking the model to be accurate is not sufficient.",
+            "origin": "Provided images",
+            "id": "q-005"
+          }
+        ]
+      },
+      {
+        "name": "Efficiency",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What is prompt caching and how does it help agents?",
+            "answer": "Prompt caching reuses computation for supported repeated prompt content, commonly a matching prefix. Stable instructions and tool definitions can make repeated agent calls cheaper or faster when the provider’s cache conditions are met. It is different from caching a final answer. Eligibility, lifetime, pricing, and matching rules vary, so inspect reported cache usage and keep dynamic content from unnecessarily disrupting reusable prefixes.",
+            "origin": "Provided images",
+            "id": "q-006"
+          },
+          {
+            "level": "Mid",
+            "question": "How is prompt caching different from response caching?",
+            "answer": "Prompt caching reuses model computation for eligible input content; a model still generates a response. Response caching returns a stored answer for an equivalent request. Cached answers can become stale or cross permission boundaries if the key omits user or tenant scope. Use explicit expiration and invalidation, and avoid replaying a cached answer when fresh external state is required.",
+            "origin": "Added topic",
+            "id": "q-007"
+          },
+          {
+            "level": "Mid",
+            "question": "How should you choose a model for an agent task?",
+            "answer": "Benchmark candidate models on realistic end-to-end tasks with the same tools, budgets, and success criteria. Measure task success, policy adherence, latency, total cost, and capability limits such as context or structured-output support. A stronger general benchmark score may not predict your specific workload. Use routing only when its additional complexity produces a measured benefit.",
+            "origin": "Added topic",
+            "id": "q-008"
+          }
+        ]
+      }
+    ],
+    "id": "category-1"
+  },
+  {
+    "name": "Prompting and structured outputs",
+    "topics": [
+      {
+        "name": "Instructions and examples",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What makes a good system prompt for an agent?",
+            "answer": "Specify the goal, scope, constraints, available capabilities, tool-use rules, completion criteria, and how to handle missing information or failure. Distinguish trusted instructions from documents the agent reads. Prefer concrete rules and a few representative examples over an oversized role description. Enforce permissions and budgets in application code; a prompt is guidance, not an access-control boundary.",
+            "origin": "Provided images",
+            "id": "q-009"
+          },
+          {
+            "level": "Basic",
+            "question": "How do you get reliable JSON out of an LLM?",
+            "answer": "Use schema-constrained structured output when the model and API support it. Define required fields, types, enums, and null behavior, then parse and validate the result in code. Handle refusals, truncation, and unsupported schema features. Valid JSON is only syntactic success: also check semantic constraints such as a refund amount being within the order’s refundable balance. Use bounded repair attempts rather than retrying forever.",
+            "origin": "Provided images",
+            "id": "q-010"
+          },
+          {
+            "level": "Basic",
+            "question": "Zero-shot vs few-shot prompting: when do examples help?",
+            "answer": "Zero-shot instructions describe the task without worked examples. Few-shot instructions include examples of the desired mapping from input to output. Examples help with unusual labels, precise formatting, edge cases, or a specific style. They also consume context and can bias outputs toward accidental patterns. Use diverse examples and a separate held-out evaluation set to verify that they improve performance.",
+            "origin": "Provided images",
+            "id": "q-011"
+          }
+        ]
+      },
+      {
+        "name": "Chaining and action policies",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What is prompt chaining, and why use it?",
+            "answer": "Prompt chaining divides a task into explicit stages such as extract, validate, enrich, and summarize. Each stage has a defined input and output that can be checked independently. It is useful when intermediate validation improves reliability or stages need different tools or models. Extra stages add latency and failure opportunities; a simple task may be better handled by one call.",
+            "origin": "Provided images",
+            "id": "q-012"
+          },
+          {
+            "level": "Mid",
+            "question": "How do you prompt a tool-using agent differently from a chatbot?",
+            "answer": "Define when to use tools, what evidence to collect, how to interpret tool failures, and which actions require user confirmation or policy checks. State that tool results and retrieved documents are data rather than new authority. Define stop conditions and require reporting the observed outcome. The runtime must validate arguments and authorize actions before execution, regardless of the model’s proposed call.",
+            "origin": "Provided images",
+            "id": "q-013"
+          }
+        ]
+      },
+      {
+        "name": "Change management",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "How do you version and test prompts?",
+            "answer": "Store prompts, schemas, model configuration, and tool contracts in version control with an identifiable release. Run representative regression cases before deployment, including failure and adversarial cases. Compare task success, safety, cost, and latency with the previous version. Use staged rollout and rollback. Log version identifiers with each trace so a production incident can be traced to the exact configuration.",
+            "origin": "Provided images",
+            "id": "q-014"
+          },
+          {
+            "level": "Mid",
+            "question": "How do you separate prompt changes from model changes in an experiment?",
+            "answer": "Change one major factor at a time when possible, pin model versions and tool behavior, and run the same held-out cases under comparable conditions. Use repeated trials for variable tasks and report uncertainty. If multiple factors must change, use an experimental design that can separate their effects. Record complete configuration identifiers so later comparisons are reproducible.",
+            "origin": "Added topic",
+            "id": "q-015"
+          },
+          {
+            "level": "Mid",
+            "question": "Why does valid structured output still need business validation?",
+            "answer": "A schema can enforce that an amount is numeric or a status is one of several strings, but it cannot establish that a refund is authorized or a cited document supports a claim. Check relationships, ownership, ranges, and live system state in application code. Handle a well-formed but invalid result as a controlled failure rather than executing it blindly.",
+            "origin": "Added topic",
+            "id": "q-016"
+          }
+        ]
+      }
+    ],
+    "id": "category-2"
+  },
+  {
+    "name": "Tool use and function calling",
+    "topics": [
+      {
+        "name": "Execution contracts",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "How does tool calling work end to end?",
+            "answer": "The application sends the model instructions and tool schemas. The model returns a proposed tool name and arguments. Application code validates the arguments, checks permission and policy, executes the operation, and returns a correlated result. The model then continues using that result. The loop may repeat, but needs limits on steps, time, cost, and retries. Tool requests are proposals, not proof of execution.",
+            "origin": "Provided images",
+            "id": "q-017"
+          },
+          {
+            "level": "Basic",
+            "question": "Who executes a tool: the model or your code?",
+            "answer": "The model normally proposes a call; an application runtime, hosted tool service, or external system executes it. Even when an API offers built-in tools, execution is performed by the provider’s runtime rather than by token generation itself. Keep credentials and authorization outside the prompt, and record actual tool outcomes so the assistant cannot mistake a planned action for a completed one.",
+            "origin": "Provided images",
+            "id": "q-018"
+          }
+        ]
+      },
+      {
+        "name": "Tool design",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What makes a good tool description?",
+            "answer": "Describe the tool’s purpose, when to use it, when not to use it, argument meanings, relevant preconditions, output shape, and side effects. Use names that distinguish similar operations. State whether an operation is read-only or changes external state. A narrow, well-documented contract reduces ambiguity; executable validation and permission checks must still enforce the contract.",
+            "origin": "Provided images",
+            "id": "q-019"
+          },
+          {
+            "level": "Mid",
+            "question": "Should tools mirror API endpoints or whole tasks?",
+            "answer": "Prefer operations that match the agent’s useful decisions while preserving visibility into consequential actions. A task-level tool can reduce fragile call sequences, but an overly broad tool may hide side effects or permissions. Keep reads and writes distinguishable, expose required review points, and make operations composable. Choose granularity using real traces and evaluation results, rather than copying every endpoint or making one all-powerful tool.",
+            "origin": "Provided images",
+            "id": "q-020"
+          }
+        ]
+      },
+      {
+        "name": "Failure and selection",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "How should a tool report errors?",
+            "answer": "Return a structured status with an error code, concise description, retryability, and any partial completion. Distinguish invalid arguments, permission denial, rate limits, transient outages, and an unknown outcome. Do not leak secrets in error messages. For writes, return a stable operation identifier or idempotency key status so the agent can check whether the action happened before retrying.",
+            "origin": "Provided images",
+            "id": "q-021"
+          },
+          {
+            "level": "Mid",
+            "question": "How many tools is too many?",
+            "answer": "There is no universal threshold. A tool set is too large when similar names confuse selection, schemas consume excessive context, or success degrades in evaluations. Scope tools by task and permission, retrieve relevant tools when appropriate, and consolidate redundant contracts. Measure incorrect selection, argument errors, latency, and task success before and after changes.",
+            "origin": "Provided images",
+            "id": "q-022"
+          }
+        ]
+      }
+    ],
+    "id": "category-3"
+  },
+  {
+    "name": "The agent loop and architecture",
+    "topics": [
+      {
+        "name": "Definitions and control flow",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What is an AI agent, and how is it different from a workflow?",
+            "answer": "An AI agent uses model output to choose some next actions in pursuit of a goal, usually with tools and state. A workflow has control flow that is largely prescribed by code or a graph. The distinction is a spectrum: a workflow may contain an agent step, and an agent may operate inside strict boundaries. Use the least autonomous design that meets the task’s requirements.",
+            "origin": "Provided images",
+            "id": "q-023"
+          },
+          {
+            "level": "Basic",
+            "question": "Describe the agent loop.",
+            "answer": "Receive a goal and current state, assemble relevant context, ask the model for a response or action, validate and execute permitted tool calls, observe results, and update state. Repeat until completion, escalation, cancellation, or a budget limit. Persist enough state to explain outcomes and recover safely. A successful final message should reflect verified results, not merely the agent’s intended actions.",
+            "origin": "Provided images",
+            "id": "q-024"
+          },
+          {
+            "level": "Mid",
+            "question": "When should you NOT use an agent?",
+            "answer": "Avoid an agent when deterministic code or a fixed workflow already handles the problem reliably and cheaply, or when unpredictable choices add unacceptable risk. Examples include exact arithmetic, straightforward ETL, and a simple known API sequence. An agent is more justified when the next action depends on ambiguous information that cannot be fully specified in advance. Compare against a simpler baseline.",
+            "origin": "Provided images",
+            "id": "q-025"
+          }
+        ]
+      },
+      {
+        "name": "Boundaries and implementation",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What stop conditions should every agent have?",
+            "answer": "Include a verifiable completion condition, maximum steps, elapsed-time deadline, token or monetary budget, cancellation, and bounded retries. Add checks for repeated actions or lack of progress. A blocked dependency or action outside permission should lead to a clear escalation rather than looping. These conditions should be implemented in the runtime, with a recorded termination reason.",
+            "origin": "Provided images",
+            "id": "q-026"
+          },
+          {
+            "level": "Mid",
+            "question": "How do you build an agent loop without a framework?",
+            "answer": "Keep explicit state containing messages, task status, counters, and tool outcomes. Call a model that can propose structured actions; dispatch calls through a registry after validation and authorization. Append results, checkpoint state, and loop under enforced limits. Handle errors and cancellation in code. Start with serial execution; introduce concurrency only when operations are independent and shared-state behavior is defined.",
+            "origin": "Provided images",
+            "id": "q-027"
+          },
+          {
+            "level": "Mid",
+            "question": "What do frameworks like LangGraph or Agent SDKs add?",
+            "answer": "Depending on the framework and version, they can provide state graphs, tool dispatch, handoffs, checkpoints, streaming, tracing, and human review hooks. They reduce repeated orchestration code but introduce abstractions and operational dependencies. Verify which durability and recovery guarantees are actually supported. Framework adoption does not remove the need for application authorization, testing, and evaluation.",
+            "origin": "Provided images",
+            "id": "q-028"
+          }
+        ]
+      }
+    ],
+    "id": "category-4"
+  },
+  {
+    "name": "Agent patterns and multi-agent systems",
+    "topics": [
+      {
+        "name": "Common patterns",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "Explain routing.",
+            "answer": "Routing selects a specialized path, model, or tool set based on the task or observed state. For example, classify a support request into billing, technical troubleshooting, or account access. Routes can be deterministic or model-based. Validate the destination, provide a fallback for uncertainty, and evaluate misrouting, because a confident wrong route can quietly degrade every later step.",
+            "origin": "Provided images",
+            "id": "q-029"
+          },
+          {
+            "level": "Mid",
+            "question": "Explain orchestrator-workers.",
+            "answer": "An orchestrator decomposes a task, assigns bounded subtasks to workers, and combines their results. Workers may be models, agents, or ordinary functions. It works well for separable research or independent code reviews. Specify input/output contracts, resource limits, shared-state ownership, and how conflicting results are resolved. Parallel workers help only when their outputs can be integrated efficiently.",
+            "origin": "Provided images",
+            "id": "q-030"
+          },
+          {
+            "level": "Mid",
+            "question": "Explain evaluator-optimizer (reflection).",
+            "answer": "A generator produces a candidate, an evaluator checks it against explicit criteria, and an optimizer revises it using the feedback. Repeat under a fixed budget until a threshold is met or progress stops. Tests or external evidence are stronger than ungrounded self-critique. A second model can repeat the first model’s mistakes, so evaluate whether the extra loop actually improves outcomes.",
+            "origin": "Provided images",
+            "id": "q-031"
+          }
+        ]
+      },
+      {
+        "name": "Collaboration tradeoffs",
+        "qas": [
+          {
+            "level": "Advanced",
+            "question": "When is a multi-agent system better than a single agent?",
+            "answer": "Use multiple agents when tasks can be separated with limited coordination, different tools or permissions are needed, or independent perspectives produce measurable quality gains. Examples include parallel evidence collection from distinct sources. Compare against a single-agent baseline under the same total cost and latency budget. More agents alone do not imply more intelligence, reliability, or speed.",
+            "origin": "Provided images",
+            "id": "q-032"
+          },
+          {
+            "level": "Advanced",
+            "question": "What are the downsides of multi-agent systems?",
+            "answer": "They add communication overhead, duplicated work, inconsistent assumptions, integration failures, and more complicated tracing and recovery. Shared resources can produce race conditions, and correlated model mistakes can survive apparent consensus. Use bounded roles, explicit contracts, one owner for each mutable artifact, and a clear final decision process. Track total system success rather than each worker’s local success alone.",
+            "origin": "Provided images",
+            "id": "q-033"
+          },
+          {
+            "level": "Mid",
+            "question": "What is a subagent?",
+            "answer": "A subagent is a delegated execution unit given a narrower task by a parent agent or orchestrator. It may have its own context, tools, and budget. Define what it can change and what evidence it must return. A subagent is not necessarily a security boundary: tool credentials and access controls determine actual isolation.",
+            "origin": "Provided images",
+            "id": "q-034"
+          }
+        ]
+      }
+    ],
+    "id": "category-5"
+  },
+  {
+    "name": "MCP and integrations",
+    "topics": [
+      {
+        "name": "Protocol fundamentals",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What is MCP (Model Context Protocol)?",
+            "answer": "MCP is a protocol for connecting AI applications to external capabilities and context through a common interface. A host manages client connections to servers that expose supported capabilities. It can make a connector reusable across compatible applications. The protocol standardizes interaction, but it does not by itself decide whether a requested action is appropriate or authorized.",
+            "origin": "Provided images",
+            "id": "q-035"
+          },
+          {
+            "level": "Basic",
+            "question": "What problem does MCP solve?",
+            "answer": "Without a shared protocol, each AI application may need a custom integration for each data source or tool service. MCP provides common discovery and interaction patterns so compatible clients can connect to reusable servers. It reduces integration duplication but still requires deployment, identity, permission, and operational decisions. Support depends on the client, server, negotiated capabilities, and protocol revision.",
+            "origin": "Provided images",
+            "id": "q-036"
+          },
+          {
+            "level": "Basic",
+            "question": "What are MCP's core primitives?",
+            "answer": "The main server-exposed primitives are tools for operations, resources for contextual data, and prompts for reusable interaction templates. A protocol implementation can also negotiate additional features; their availability varies by revision and client. Keep the distinction clear: reading a resource is different from executing a tool, and an exposed prompt is not a replacement for the host’s trusted instructions.",
+            "origin": "Provided images",
+            "id": "q-037"
+          }
+        ]
+      },
+      {
+        "name": "Security and execution",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What are the security risks of MCP?",
+            "answer": "Risks include malicious or compromised servers, misleading tool descriptions, prompt injection through returned content, credential exposure, overbroad scopes, and unintended data transfers. Authenticate servers, restrict available tools and scopes, validate arguments and results, and authorize consequential calls in the host or service. Treat descriptions and server content as potentially untrusted, and audit changes to installed integrations.",
+            "origin": "Provided images",
+            "id": "q-038"
+          },
+          {
+            "level": "Mid",
+            "question": "When would you use MCP vs direct function calling?",
+            "answer": "MCP is useful when a capability should be reusable across compatible hosts or benefits from standardized discovery and remote integration. Direct function calling can be simpler for a small application with private, tightly controlled functions. They are not mutually exclusive: a host may expose MCP server tools to a model using the model provider’s function-calling interface.",
+            "origin": "Provided images",
+            "id": "q-039"
+          },
+          {
+            "level": "Advanced",
+            "question": "What is code execution with MCP?",
+            "answer": "This is an architectural pattern in which an agent writes code that invokes wrappers around MCP tools inside an execution environment. Code can filter results, compose operations, and return a compact summary rather than passing every intermediate result through the model. It is not a universal guarantee of MCP. The code runner still needs isolation, scoped credentials, network limits, timeouts, and checks on side effects.",
+            "origin": "Provided images",
+            "id": "q-040"
+          }
+        ]
+      }
+    ],
+    "id": "category-6"
+  },
+  {
+    "name": "RAG, memory and context engineering",
+    "topics": [
+      {
+        "name": "Retrieval foundations",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What is RAG, and why use it?",
+            "answer": "Retrieval-augmented generation fetches relevant external information and supplies it to a model before generation. It helps an application answer using private, recent, or domain-specific material without relying solely on model weights. Retrieval can be lexical, vector-based, or hybrid. RAG does not guarantee correctness: irrelevant evidence, stale documents, and unsupported synthesis still need to be detected.",
+            "origin": "Provided images",
+            "id": "q-041"
+          },
+          {
+            "level": "Basic",
+            "question": "Describe a RAG pipeline.",
+            "answer": "Ingest authorized documents, normalize them, split them into useful chunks, retain metadata, and build searchable indexes. At query time, retrieve candidates, optionally rerank them, assemble an evidence-limited context, and generate an answer with citations. Enforce access control before content enters the model. Evaluate retrieval coverage and answer groundedness separately so you know which stage failed.",
+            "origin": "Provided images",
+            "id": "q-042"
+          }
+        ]
+      },
+      {
+        "name": "Context and memory",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What is context engineering?",
+            "answer": "Context engineering is the design of what information an agent receives at each step: instructions, tool definitions, task state, selected history, retrieved evidence, and memory. It includes ordering, provenance, token budgeting, and removal of irrelevant content. Its purpose is to give the model sufficient reliable information for the next decision without overwhelming it or exposing data it should not access.",
+            "origin": "Provided images",
+            "id": "q-043"
+          },
+          {
+            "level": "Mid",
+            "question": "What is compaction?",
+            "answer": "Compaction replaces a large interaction history with a smaller representation of the information needed to continue. Preserve goals, constraints, decisions, unresolved tasks, relevant evidence references, and tool outcomes. It is lossy: a summary may omit or distort important detail. Keep original records outside the active context and retrieve them when needed; compaction does not enlarge the model’s actual context window.",
+            "origin": "Provided images",
+            "id": "q-044"
+          },
+          {
+            "level": "Mid",
+            "question": "What is agentic search, and how does it differ from classic RAG?",
+            "answer": "A classic RAG setup often executes a predetermined retrieve-then-answer sequence. Agentic search lets the system decide whether to search again, reformulate a query, inspect a source, or pursue a missing fact. This flexibility can improve difficult research but adds cost, latency, and opportunities to drift. Limit iterations and evaluate whether evidence coverage improves over the fixed pipeline.",
+            "origin": "Provided images",
+            "id": "q-045"
+          },
+          {
+            "level": "Mid",
+            "question": "Short-term vs long-term memory in agents?",
+            "answer": "Short-term memory is state needed for the current task, such as active messages, tool results, and a working plan. Long-term memory persists across tasks, such as a user preference or validated domain fact. Storage outside the model enables persistence, but recall still requires retrieval into context. Use provenance, access controls, correction and deletion mechanisms, and expiration where appropriate; do not persist every observation indiscriminately.",
+            "origin": "Provided images",
+            "id": "q-046"
+          }
+        ]
+      }
+    ],
+    "id": "category-7"
+  },
+  {
+    "name": "Evals and observability",
+    "topics": [
+      {
+        "name": "Evaluation design",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "Why are evals essential for agents?",
+            "answer": "Agent behavior depends on prompts, models, tools, state, and a sequence of decisions, so a few successful demonstrations do not establish reliability. Evals quantify task success, policy adherence, regressions, and operational tradeoffs across representative cases. Include failures and edge cases, not just happy paths. Combine offline evaluation with controlled production monitoring because neither alone captures every failure mode.",
+            "origin": "Provided images",
+            "id": "q-047"
+          },
+          {
+            "level": "Mid",
+            "question": "What are the parts of an agent eval?",
+            "answer": "Define the task and environment, initial state, permitted tools, success criteria, evaluation cases, execution harness, and graders. Record the final outcome and useful trace evidence, including tool actions, cost, latency, and termination reason. Reset environments between trials to avoid leakage. Distinguish outcome correctness from process requirements such as whether the agent stayed within permissions.",
+            "origin": "Provided images",
+            "id": "q-048"
+          },
+          {
+            "level": "Mid",
+            "question": "Code-based vs model-based vs human graders?",
+            "answer": "Code graders are precise and repeatable for executable criteria such as schema validity or database state. Model graders scale to nuanced judgments but can be biased or inconsistent. Humans provide domain judgment but are slower and can disagree. Use the cheapest reliable grader for each criterion, calibrate subjective grading with labeled examples, and reserve expert review for ambiguous or consequential cases.",
+            "origin": "Provided images",
+            "id": "q-049"
+          }
+        ]
+      },
+      {
+        "name": "Grading and datasets",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What is LLM-as-a-judge, and what are its pitfalls?",
+            "answer": "An LLM judge evaluates another output using a rubric and provided evidence. Pitfalls include position bias, preference for verbosity, sensitivity to wording, correlated model errors, and prompt injection inside the evaluated content. Require rubric-specific judgments, randomize comparisons where useful, and calibrate against human labels. Treat judge scores as measurements with uncertainty, not objective proof of correctness.",
+            "origin": "Provided images",
+            "id": "q-050"
+          },
+          {
+            "level": "Mid",
+            "question": "How do you build an eval set from scratch?",
+            "answer": "Start with the user tasks and failure modes the product must handle. Collect realistic, permissioned examples, add edge and adversarial cases, and define expected outcomes or grading rubrics. Keep a held-out set separate from prompt tuning, label provenance, and prevent duplicates or leakage. Expand from production incidents and underperforming task slices. Version datasets so comparisons remain interpretable.",
+            "origin": "Provided images",
+            "id": "q-051"
+          },
+          {
+            "level": "Advanced",
+            "question": "What is pass@k vs pass^k?",
+            "answer": "Under a common definition, pass@k measures whether at least one of k attempts succeeds, while pass^k measures whether all k attempts succeed. If attempts are independent with identical success probability p, the probabilities are 1 − (1 − p)^k and p^k respectively. Independence is an assumption, not a given. Report the benchmark’s exact definitions and sampling procedure; pass@k also needs a viable way to select a successful candidate in real use.",
+            "origin": "Provided images",
+            "id": "q-052"
+          }
+        ]
+      }
+    ],
+    "id": "category-8"
+  },
+  {
+    "name": "Safety and security",
+    "topics": [
+      {
+        "name": "Prompt injection",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What is prompt injection?",
+            "answer": "Prompt injection is an attempt to make an AI system follow instructions from an attacker-controlled input that should not have authority over the task. A malicious passage might tell an agent to ignore its rules or disclose private data. Risk becomes more serious when the agent can access sensitive information or execute actions. The defense must include runtime boundaries as well as model guidance.",
+            "origin": "Provided images",
+            "id": "q-053"
+          },
+          {
+            "level": "Mid",
+            "question": "Direct vs indirect prompt injection?",
+            "answer": "Direct injection is delivered through an attacker’s message or other direct task input. Indirect injection is embedded in material the agent encounters, such as a web page, retrieved document, email, or tool result. Both try to cross an instruction boundary. Preserve source provenance, treat external content as data, and authorize actions independently of instructions found in that content.",
+            "origin": "Provided images",
+            "id": "q-054"
+          },
+          {
+            "level": "Advanced",
+            "question": "Why can't prompt injection be solved with prompting alone?",
+            "answer": "Natural-language rules are interpreted by the same model that processes attacker-controlled text, and models can misclassify authority or intent. A prompt cannot revoke credentials or prevent an external write once a permissive runtime executes it. Reduce impact with least privilege, isolated execution, server-side authorization, controlled data flows, and action review. Prompting is one layer, not a complete guarantee.",
+            "origin": "Provided images",
+            "id": "q-055"
+          }
+        ]
+      },
+      {
+        "name": "Defense architecture",
+        "qas": [
+          {
+            "level": "Advanced",
+            "question": "How do you defend against prompt injection?",
+            "answer": "Limit what an agent can read and change, isolate untrusted execution, validate tool arguments, and enforce user and tenant authorization on every operation. Restrict outbound destinations and credential access, and require review for actions that need it. Label untrusted sources and avoid interpreting tool content as new policy. Test attacks and inspect real traces; no single detector or prompt should be treated as a complete defense.",
+            "origin": "Provided images",
+            "id": "q-056"
+          },
+          {
+            "level": "Advanced",
+            "question": "What is the “lethal trifecta”?",
+            "answer": "The phrase commonly describes the combination of access to private data, exposure to untrusted content, and a route for communicating externally. An injected instruction can try to use all three to exfiltrate information. It is a useful threat-modeling shorthand rather than a formal proof that every such system will fail. Break or tightly control these connections, especially outbound transfers of sensitive data.",
+            "origin": "Provided images",
+            "id": "q-057"
+          },
+          {
+            "level": "Mid",
+            "question": "What is sandboxing, and why do agents need it?",
+            "answer": "Sandboxing constrains an execution environment’s filesystem, network, process capabilities, credentials, and resource use. It limits the impact of buggy or malicious code an agent may run. A container alone is not automatically an adequate boundary for every threat model. Configure actual isolation, credential scope, time and memory limits, and controlled artifact transfer, and keep enforcement outside the model’s control.",
+            "origin": "Provided images",
+            "id": "q-058"
+          }
+        ]
+      }
+    ],
+    "id": "category-9"
+  },
+  {
+    "name": "Production: cost, latency and scale",
+    "topics": [
+      {
+        "name": "Performance and resilience",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "How do you reduce the cost of an agent?",
+            "answer": "Measure cost per successful task, including retries and tools. Remove unnecessary calls, scope context and tools, reuse eligible cached prefixes, and route simpler tasks to cheaper models when evaluation supports it. Use deterministic code for straightforward computation and cache safe reusable results. Set budgets and compare quality by task slice so a lower bill does not hide a higher failure rate.",
+            "origin": "Provided images",
+            "id": "q-059"
+          },
+          {
+            "level": "Mid",
+            "question": "How do you reduce agent latency?",
+            "answer": "Trace the critical path and separate model time, queueing, tool execution, and network overhead. Reduce avoidable serial steps, retrieve only necessary data, choose suitable models, and parallelize independent reads. Stream progress for perceived responsiveness, but do not confuse it with faster completion. Evaluate time to first useful result and full completion, especially p95 latency under realistic load.",
+            "origin": "Provided images",
+            "id": "q-060"
+          },
+          {
+            "level": "Mid",
+            "question": "How do you handle 429 and 5xx errors from LLM APIs?",
+            "answer": "Respect Retry-After when present, apply capped exponential backoff with jitter for retryable errors, and enforce retry and deadline budgets. Use rate-aware queues and circuit breakers to avoid amplifying outages. A 429 may reflect quota exhaustion rather than a brief overload. Consider compatible fallbacks under an explicit policy. Never blindly replay consequential tools after a timeout; check their outcome or use idempotency controls.",
+            "origin": "Provided images",
+            "id": "q-061"
+          }
+        ]
+      },
+      {
+        "name": "Scaling and durable work",
+        "qas": [
+          {
+            "level": "Advanced",
+            "question": "How do you scale an agent service to millions of users?",
+            "answer": "Design for peak concurrent runs and their tool and token demand, not registered-user count alone. Separate request handling from queued workers, persist state, enforce tenant quotas, and bound concurrency to provider and downstream capacity. Autoscale using queue depth and saturation metrics. Include fairness, cancellation, backpressure, tenant isolation, observability, and load tests with realistic multi-step tasks.",
+            "origin": "Provided images",
+            "id": "q-062"
+          },
+          {
+            "level": "Advanced",
+            "question": "What is durable execution for agents?",
+            "answer": "Durable execution persists workflow progress so a run can survive process restarts and wait for events without holding a live process indefinitely. A durable engine may record completed steps and resume or replay orchestration. Guarantees vary by implementation. External side effects still need idempotency keys, deduplication, or reconciliation because a crash can occur after an action succeeds but before its result is recorded.",
+            "origin": "Provided images",
+            "id": "q-063"
+          },
+          {
+            "level": "Advanced",
+            "question": "What are long-running agents, and what makes them hard?",
+            "answer": "These agents operate across extended periods, multiple sessions, or external events. Challenges include stale assumptions, changing permissions, context loss, partial failures, duplicated actions, accumulated cost, and cancellation. Persist explicit state, checkpoint results, revalidate authorization before consequential actions, and use deadlines and budget limits. Prefer event-driven waits to a model loop that continuously polls without useful work.",
+            "origin": "Provided images",
+            "id": "q-064"
+          }
+        ]
+      }
+    ],
+    "id": "category-10"
+  },
+  {
+    "name": "Agentic system design",
+    "topics": [
+      {
+        "name": "Customer and developer systems",
+        "qas": [
+          {
+            "level": "Advanced",
+            "question": "Design a customer support agent that can issue refunds.",
+            "answer": "Authenticate the user, fetch only authorized order data, and use deterministic policy checks to calculate refund eligibility and limits. Let the agent explain the options, while a dedicated write service rechecks policy and permissions. Review high-risk or exceptional cases, and use an idempotent refund operation with an audit trail. Handle unknown payment outcomes through reconciliation. Evaluate policy correctness, fraud exposure, customer resolution, and mistaken refunds.",
+            "origin": "Provided images",
+            "id": "q-065"
+          },
+          {
+            "level": "Advanced",
+            "question": "Design a coding agent.",
+            "answer": "Use a scoped repository workspace with readable project instructions, a bounded task plan, and sandboxed tools for inspection, edits, and relevant tests. Keep secrets out of model context and limit network access according to the task. Show a reviewable diff and report verification evidence. Gate merges or deployments according to the user’s authority. Evaluate actual task behavior and regression risk, not merely whether code compiles.",
+            "origin": "Provided images",
+            "id": "q-066"
+          },
+          {
+            "level": "Advanced",
+            "question": "Design a deep research agent.",
+            "answer": "Translate the request into research questions, collect evidence from suitable sources, track provenance, and identify gaps before synthesizing. Search iteratively under source, time, and cost budgets. Prefer primary evidence, compare contradictory sources, and attach citations to specific claims. Separate established findings from inference and uncertainty. Evaluate source quality, claim support, coverage, and whether the final answer addresses the original question.",
+            "origin": "Provided images",
+            "id": "q-067"
+          }
+        ]
+      },
+      {
+        "name": "Platform and communication systems",
+        "qas": [
+          {
+            "level": "Advanced",
+            "question": "Design a rate limiter and quota system for an LLM platform.",
+            "answer": "Authenticate the caller and enforce limits by tenant, model, and resource type such as requests, tokens, concurrency, and spend. Use a token-bucket or similar design for rate limits and a consistent ledger for quotas. Reserve estimated usage when admitting work, then reconcile actual usage including streaming or failures. Coordinate shared capacity across workers, return useful retry guidance, and test fairness, races, and outage behavior.",
+            "origin": "Provided images",
+            "id": "q-068"
+          },
+          {
+            "level": "Advanced",
+            "question": "Design an agent platform for 1 million users.",
+            "answer": "Separate the control plane for identity, policy, configuration, and billing from the execution plane for isolated runs and tools. Use durable state, queues, scoped credentials, tenant-specific quotas, tracing, and versioned prompts and tools. Size capacity from peak concurrent sessions and workload distribution. Add cancellation, recovery, data retention controls, and staged releases. Validate cost per successful task and load-test provider bottlenecks before promising scale.",
+            "origin": "Provided images",
+            "id": "q-069"
+          },
+          {
+            "level": "Advanced",
+            "question": "Design an AI email assistant that drafts and sends replies.",
+            "answer": "Connect to mail with the minimum required scopes and retrieve only relevant messages. Treat incoming email and attachments as untrusted content. Generate a draft grounded in the thread, and present recipients, subject, body, and attachments for review when required. Authorize sending in a separate service, prevent duplicate sends, and record the provider message ID. Evaluate wrong-recipient risk, factual accuracy, unwanted commitments, and successful delivery.",
+            "origin": "Provided images",
+            "id": "q-070"
+          }
+        ]
+      }
+    ],
+    "id": "category-11"
+  },
+  {
+    "name": "Behavioral and project questions",
+    "topics": [
+      {
+        "name": "Explaining your work",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "Walk me through an agent you built. What would you do differently?",
+            "answer": "Use a truthful project narrative: the user problem, why an agent was appropriate, your architecture and tools, the constraints, and how you evaluated it. Then describe an observed limitation and a concrete improvement. If you have not built a deployed agent, say so and discuss a prototype as a prototype. Prepare a diagram, one trace, and real outcome measurements; do not invent production experience.",
+            "origin": "Provided images",
+            "id": "q-071"
+          },
+          {
+            "level": "Mid",
+            "question": "Tell me about a time an agent failed in an unexpected way.",
+            "answer": "Choose a real incident and describe the intended behavior, actual outcome, impact, and evidence used to find the cause. Distinguish a model error from a tool, state, or policy failure. Explain containment, the fix, and the regression case you added. An honest answer can include uncertainty or an unresolved limitation. Use a simulation only if you explicitly label it as such.",
+            "origin": "Provided images",
+            "id": "q-072"
+          },
+          {
+            "level": "Mid",
+            "question": "Describe a cost vs quality tradeoff you made.",
+            "answer": "Explain the baseline, the resource bottleneck, the alternatives, and the quality measure that guided your choice. Discuss a real change such as using a smaller model for simple classification while keeping a stronger model for difficult cases. Report actual before-and-after data when available and explain which task slices regressed. If proposing an experiment rather than reporting experience, make that distinction explicit.",
+            "origin": "Provided images",
+            "id": "q-073"
+          }
+        ]
+      },
+      {
+        "name": "Impact and learning",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "Tell me about a time you improved an agent's reliability.",
+            "answer": "Identify a reproducible failure pattern, explain how you measured it, and describe the targeted change such as tool validation, retrieval fixes, or idempotency. Show how you separated the effect of that change from unrelated updates. Discuss regression testing and remaining failure modes. Structure the answer around evidence and your own contribution; use only outcomes you actually observed.",
+            "origin": "Provided images",
+            "id": "q-074"
+          },
+          {
+            "level": "Mid",
+            "question": "How did you measure the impact of an AI feature?",
+            "answer": "Tie the feature to a user outcome such as successful task completion or reduced resolution time, then measure quality, adoption, cost, latency, and negative outcomes alongside it. Use a baseline and, where feasible, a controlled rollout or experiment. Separate correlation from causal claims. Report uncertainty and important segments, because a better average can hide harm to particular users or tasks.",
+            "origin": "Provided images",
+            "id": "q-075"
+          },
+          {
+            "level": "Basic",
+            "question": "How do you keep up with the fast-moving AI field?",
+            "answer": "Describe a sustainable practice: follow primary documentation and research relevant to your work, reproduce selected claims in small experiments, and record results. Evaluate updates against your own tasks before adopting them. Share what changed your engineering decisions and why. Avoid listing tools as a substitute for judgment; knowing when a new capability does not improve your system is useful expertise.",
+            "origin": "Provided images",
+            "id": "q-076"
+          }
+        ]
+      }
+    ],
+    "id": "category-12"
+  },
+  {
+    "name": "Vibe coding, voice coding and builder practice",
+    "topics": [
+      {
+        "name": "From a request to a system",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What changes when a vibe coder starts thinking like a builder?",
+            "answer": "The request moves from a broad outcome to an explicit system: users, pages, data, actions, constraints, and a review plan. Instead of only asking for an e-commerce site, define categories, product details, cart state, checkout, confirmation, and failure paths. Build in reviewable blocks and verify the connections. A longer prompt is not inherently better; clarity and observable acceptance criteria matter.",
+            "origin": "Added topic",
+            "id": "q-077"
+          },
+          {
+            "level": "Mid",
+            "question": "How should you break an e-commerce build into blocks?",
+            "answer": "Start with the user journey and a page map. Define shared product and cart data, create a reviewable homepage, then build product selection and a persistent cart. Add shipping, checkout, and confirmation with explicit error handling. Verify each block with its preceding and following steps. Keep demo payment controls restricted to test or admin use, and ensure they cannot create a real paid-order state accidentally.",
+            "origin": "Added topic",
+            "id": "q-078"
+          }
+        ]
+      },
+      {
+        "name": "Voice as an interface",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What is voice coding?",
+            "answer": "Voice coding uses spoken instructions as an interface to coding tools, often through speech recognition and an AI assistant. It can make idea capture and iteration more natural, but spoken input can still be ambiguous or mistranscribed. State the goal, the specific change, constraints, and review point. Confirm critical names and values before actions that are difficult to undo.",
+            "origin": "Added topic",
+            "id": "q-079"
+          },
+          {
+            "level": "Mid",
+            "question": "What makes a useful voice coding prompt?",
+            "answer": "Use a short sequence: context, next block, required behavior, connections, and a stopping point. For example: “We are building the T-shirt store. Add size selection to the product page, keep it in the cart, and prevent checkout without a size. Show me the change before continuing.” Review the transcript and the implementation; clear speech does not replace validation.",
+            "origin": "Added topic",
+            "id": "q-080"
+          }
+        ]
+      },
+      {
+        "name": "Blueprints and verification",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What belongs in an interactive system blueprint?",
+            "answer": "Include pages or states, their purpose, key content, inputs, outgoing actions, and links to preceding and following states. Show success, empty, error, and permission states where relevant. Use clear routing and clickable previews rather than tangled connectors. Keep the blueprint connected to implementation evidence: a navigable mockup demonstrates structure, while functional checks demonstrate that the underlying behavior works.",
+            "origin": "Added topic",
+            "id": "q-081"
+          },
+          {
+            "level": "Mid",
+            "question": "How do you know a generated website works beyond looking finished?",
+            "answer": "Run the real user journey with representative data and inspect both the visible result and stored state. Check validation, back navigation, empty states, refresh behavior, access control, and failures at external services. For checkout, distinguish test transactions from real payment confirmation. Treat screenshots as visual evidence and functional tests as behavior evidence; neither alone establishes the complete system.",
+            "origin": "Added topic",
+            "id": "q-082"
+          }
+        ]
+      }
+    ],
+    "id": "category-13"
+  },
+  {
+    "name": "Data governance and human oversight",
+    "topics": [
+      {
+        "name": "Identity and data lifecycle",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "How should an agent enforce user and tenant permissions?",
+            "answer": "Bind every tool action and retrieval request to the authenticated user and tenant, then check authorization in the service that owns the data. Never let the model choose its own effective identity. Avoid retrieving unauthorized data and hoping the model will omit it. Recheck permission for delayed actions, use scoped credentials, and log decisions without exposing sensitive content unnecessarily.",
+            "origin": "Added topic",
+            "id": "q-083"
+          },
+          {
+            "level": "Mid",
+            "question": "How should agent memory handle privacy and deletion?",
+            "answer": "Store only information with a defined purpose and appropriate authorization, attach provenance and retention metadata, and restrict retrieval by user and tenant. Provide correction and deletion mechanisms across primary storage, indexes, and caches according to policy. Explain backup retention limitations. A memory summary is still user data and may retain sensitive facts even after the original conversation is removed.",
+            "origin": "Added topic",
+            "id": "q-084"
+          }
+        ]
+      },
+      {
+        "name": "Human review and accountability",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "When should a human review an agent action?",
+            "answer": "Use review when policy, user instructions, uncertainty, or consequence makes autonomous execution inappropriate. Present the exact action, affected parties, important inputs, and expected side effects so approval is informed. Avoid repeatedly requesting approval for already authorized routine work. Bind approval to the specific operation and re-review if material details change before execution.",
+            "origin": "Added topic",
+            "id": "q-085"
+          },
+          {
+            "level": "Mid",
+            "question": "What should an agent audit trail record?",
+            "answer": "Record the user or service identity, task and run IDs, configuration versions, relevant evidence references, tool requests, authorization decisions, execution outcomes, timestamps, and final status. Correlate retries with stable operation IDs. Redact secrets and apply retention and access controls to traces. The goal is to reconstruct what happened and why without turning observability into an uncontrolled repository of private data.",
+            "origin": "Added topic",
+            "id": "q-086"
+          }
+        ]
+      },
+      {
+        "name": "Product boundaries",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "How do you choose an appropriate level of autonomy?",
+            "answer": "Assess task ambiguity, potential impact, reversibility, available verification, and the user’s authorization. Start with deterministic processing or draft-only assistance where that meets the need, then expand autonomy based on measured reliability. Keep high-consequence actions behind independent policy checks. Evaluate the full operating mode, including escalation burden, rather than only the model’s isolated accuracy.",
+            "origin": "Added topic",
+            "id": "q-087"
+          },
+          {
+            "level": "Mid",
+            "question": "How should an agent communicate uncertainty and failure?",
+            "answer": "State what was completed, what remains unverified, the evidence available, and the next useful step. Separate a tool timeout from a confirmed failure: an unknown outcome may require checking state before retrying. Avoid fabricated success or unsupported confidence percentages. Give concise actionable explanations and preserve enough task state for safe continuation or human handoff.",
+            "origin": "Added topic",
+            "id": "q-088"
+          }
+        ]
+      }
+    ],
+    "id": "category-14"
+  },
+  {
+    "name": "Planning, reasoning and task state",
+    "topics": [
+      {
+        "name": "Plans and decomposition",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What is the difference between a plan and a verified outcome?",
+            "answer": "A plan describes intended work and dependencies; an outcome is an observed result supported by evidence. An agent may produce a convincing plan without completing any action. Track steps as pending, running, completed, blocked, or failed, and mark completion only after checking the appropriate tool result or artifact. Revise the plan when new evidence changes the task.",
+            "origin": "Added topic",
+            "id": "q-089"
+          },
+          {
+            "level": "Mid",
+            "question": "How detailed should an agent plan be?",
+            "answer": "Make the plan detailed enough to expose dependencies, permissions, and verification points without freezing every low-level action in advance. Use shorter horizons when the environment is uncertain and refine after observations. A task list is useful only if it influences execution and gets updated. Avoid spending more resources maintaining an elaborate plan than the task warrants.",
+            "origin": "Added topic",
+            "id": "q-090"
+          }
+        ]
+      },
+      {
+        "name": "Evidence and reasoning",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "Should you ask an agent to reveal its full chain of thought?",
+            "answer": "Do not rely on access to private internal reasoning. Ask for a concise decision summary, stated assumptions, evidence, and verifiable tool outputs instead. These are useful for review without treating a generated explanation as a faithful account of every internal computation. Trace what the system actually did and evaluate outcomes independently of how persuasive its explanation sounds.",
+            "origin": "Added topic",
+            "id": "q-091"
+          },
+          {
+            "level": "Mid",
+            "question": "How does an agent recover when its assumptions are wrong?",
+            "answer": "Detect disagreement between expected and observed results, preserve completed work, and identify which assumptions or dependencies are invalid. Gather targeted evidence before choosing a revised action. Use bounded retries and escalate when the task cannot proceed within scope. Record the change in task state so a later continuation does not repeat the failed approach.",
+            "origin": "Added topic",
+            "id": "q-092"
+          }
+        ]
+      },
+      {
+        "name": "State and coordination",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What belongs in an agent's explicit task state?",
+            "answer": "Store the objective, accepted constraints, current status, completed and pending steps, artifact references, relevant evidence, budgets, and unresolved decisions. Keep credentials outside this state and avoid unnecessary private data. Explicit state should support resumption and audit; it is separate from a long transcript and should not depend on the model remembering an omitted conversation.",
+            "origin": "Added topic",
+            "id": "q-093"
+          },
+          {
+            "level": "Advanced",
+            "question": "How do you prevent duplicate or conflicting actions across workers?",
+            "answer": "Assign ownership of mutable resources and use atomic database updates, transactions, leases, or version checks where appropriate. Give external operations stable idempotency keys and deduplicate repeated work. Reconcile unknown outcomes before retrying. A shared natural-language plan is not a lock; correctness must be enforced by the state and execution layers under concurrent access and worker failure.",
+            "origin": "Added topic",
+            "id": "q-094"
+          }
+        ]
+      }
+    ],
+    "id": "category-15"
+  },
+  {
+    "name": "Multimodal and computer-use agents",
+    "topics": [
+      {
+        "name": "Perception and interaction",
+        "qas": [
+          {
+            "level": "Basic",
+            "question": "What is a multimodal agent?",
+            "answer": "A multimodal agent uses more than one information modality, such as text, images, audio, or video, while choosing actions toward a goal. A voice-driven coding assistant may combine speech recognition, text-based tool calls, and visual interface review. Each modality adds potential errors, so preserve useful source references and verify critical interpretations before acting on them.",
+            "origin": "Added topic",
+            "id": "q-095"
+          },
+          {
+            "level": "Mid",
+            "question": "How is computer use different from calling an API?",
+            "answer": "Computer use interacts with a visible interface through clicks, typing, and other UI actions; API tools use explicit programmatic contracts. UIs can change, hide state, or introduce focus errors, while APIs often provide clearer identifiers and structured results. Prefer a suitable authorized API when available. When using a UI, inspect the current state and verify the result rather than assuming a click succeeded.",
+            "origin": "Added topic",
+            "id": "q-096"
+          }
+        ]
+      },
+      {
+        "name": "Voice and visual ambiguity",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "How do you reduce speech-recognition errors in an agent workflow?",
+            "answer": "Use a transcript or read-back for critical entities such as recipients, filenames, amounts, and commands. Ask focused clarification when the ambiguity changes the action. Provide spelling or selection interfaces for unusual names, and let users correct the transcript before execution when consequences warrant it. Voice confidence scores alone do not establish that the intended action was understood.",
+            "origin": "Added topic",
+            "id": "q-097"
+          },
+          {
+            "level": "Mid",
+            "question": "Can a screenshot prove that an agent completed a task?",
+            "answer": "A screenshot can show a visible state at a particular time, but it may omit hidden errors, failed persistence, or downstream effects. Use it alongside structured evidence such as an order ID, saved file, database state, or verified message status. Distinguish the action the agent attempted from the outcome the relevant system actually recorded.",
+            "origin": "Added topic",
+            "id": "q-098"
+          }
+        ]
+      },
+      {
+        "name": "Permissions and evaluation",
+        "qas": [
+          {
+            "level": "Mid",
+            "question": "What boundaries should a browser or desktop agent have?",
+            "answer": "Limit access to the accounts, sites, files, and actions authorized for the task. Treat page content as untrusted and avoid entering credentials or private data into unexpected destinations. Require the same policy checks for consequential UI actions as for API writes. Preserve user work, track current context, and verify destination and operation details before execution.",
+            "origin": "Added topic",
+            "id": "q-099"
+          },
+          {
+            "level": "Advanced",
+            "question": "How do you evaluate a computer-use agent?",
+            "answer": "Run realistic tasks in resettable environments and check resulting application state, not only click sequences. Include changed layouts, loading delays, dialogs, accessibility variations, incorrect focus, and interruption or cancellation. Track task success, unintended changes, time, cost, and intervention rate. A robust agent may use a different valid sequence than a reference trace, so grade outcomes and constraints separately.",
+            "origin": "Added topic",
+            "id": "q-100"
+          }
+        ]
+      }
+    ],
+    "id": "category-16"
+  }
+]

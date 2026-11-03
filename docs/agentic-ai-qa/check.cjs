@@ -1,0 +1,28 @@
+const { chromium }=require('playwright');
+const path=require('path'),base=__dirname;
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ await page.setContent(require('fs').readFileSync(path.join(base,'qa-session-agentic-ai.html'),'utf8'));
+ const assert=(v,m)=>{if(!v)throw new Error(m)};
+ assert(await page.locator('.qa').count()===320,'320 questions');
+ assert(await page.locator('.category').count()===34,'34 categories');
+ await page.locator('#search').fill('idempotency');assert(await page.locator('.qa:not([hidden])').count()>0,'search results');
+ await page.locator('#level').selectOption('Advanced');assert(await page.locator('.qa:not([hidden])').count()>0,'combined filters');
+ await page.locator('#reset').click();
+ await page.locator('#category-filter').selectOption('category-17');assert(await page.locator('.qa:not([hidden])').count()===9,'category filter');
+ await page.locator('#topic-filter').selectOption('category-17-topic-2');assert(await page.locator('.qa:not([hidden])').count()===3,'topic filter');
+ await page.locator('#level').selectOption('Intermediate');assert(await page.locator('.qa:not([hidden])').count()===1,'nested level filter');
+ await page.locator('#reset').click();assert(await page.locator('.qa:not([hidden])').count()===320,'reset all filters');
+ assert(await page.evaluate(()=>[...document.querySelectorAll('.topic')].every(t=>new Set([...t.querySelectorAll('.qa')].map(q=>q.dataset.level)).size===3)),'all topics have three levels');
+ await page.locator('#origin').selectOption('Provided images');assert(await page.locator('.qa:not([hidden])').count()===72,'72 source questions');
+ await page.locator('#expand').click();assert(await page.locator('.qa[open]').count()===72,'expand visible');
+ await page.locator('#collapse').click();assert(await page.locator('.qa[open]').count()===0,'collapse');
+ await page.locator('#practice').click();assert(await page.locator('#study').isVisible(),'practice opens');await page.locator('#reveal').click();assert(await page.locator('#study-answer').isVisible(),'answer reveals');
+ await page.locator('#close-study').click();await page.locator('#reset').click();await page.locator('#search').fill('zzzzzzzzzz');assert(await page.locator('#empty').isVisible(),'empty state');
+ await page.locator('#reset').click();await page.evaluate(()=>location.hash='q-048');await page.waitForTimeout(100);assert(await page.locator('#q-048').getAttribute('open')!==null,'deep link opens answer');
+ await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';location.hash='';document.querySelectorAll('details').forEach(d=>d.open=false);window.scrollTo(0,0)});await page.waitForTimeout(150);await page.screenshot({path:path.join(base,'desktop-preview.png')});
+ await page.setViewportSize({width:390,height:844});await page.locator('#mobile-nav').click();assert(await page.locator('#contents').isVisible(),'mobile nav');await page.locator('#mobile-nav').click();
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'mobile overflow');await page.screenshot({path:path.join(base,'mobile-preview.png')});
+ await page.evaluate(()=>document.querySelectorAll('details').forEach(d=>d.open=true));await page.pdf({path:path.join(base,'qa-session-agentic-ai.pdf'),format:'A4',printBackground:true,margin:{top:'16mm',bottom:'16mm',left:'15mm',right:'15mm'}});
+ assert(errors.length===0,'no script errors: '+errors.join(';'));await browser.close();console.log('PASS: counts, search, combined filters, source labels, expand/collapse, practice, empty state, deep links, mobile navigation, no horizontal overflow, PDF export, no JS errors.');
+})();
