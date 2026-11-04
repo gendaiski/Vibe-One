@@ -1,6 +1,10 @@
-# Q&A Session — Questions and Answers in Agentic AI
+# Agentic Atlas Q&A
 
 Edition 02 expands the initial guide to **34 categories, 93 topics, and 320 answered questions**. Every topic contains **Basic, Intermediate, and Advanced** Q&A. The initial 100 question IDs are retained for stable links.
+
+## Frontend design
+
+The Agentic Atlas identity uses a dark category explorer, a quiet neutral canvas, a serif Q&A accent, connected-concept shortcuts, responsive search/filter controls, and readable answer cards. `frontend.css` is embedded into the standalone HTML by `build.py`; no remote fonts or scripts are required. Inside the Vibe One checkout, rebuilding also updates `dist/atlas/index.html`. With the platform running locally, open `http://127.0.0.1:4173/atlas/`.
 
 ## Use
 
